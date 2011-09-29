@@ -89,7 +89,7 @@ function phptemplate_links($links, $attributes = array()) {
 }
 
 function phptemplate_upload_attachments($files) {
-  $output = "<div id='attachments>'";
+  $output = "<div id='attachments'>";
 
   foreach ($files as $file) {
     $file = (object) $file;
