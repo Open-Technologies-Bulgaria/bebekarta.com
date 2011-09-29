@@ -1,8 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="<?php echo $language->language ?>" xml:lang="<?php echo $language->language ?>" dir="<?php echo $language->dir ?>" id="html-main">
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="http://www.facebook.com/2008/fbml"
+      lang="<?php echo $language->language ?>"
+      xml:lang="<?php echo $language->language ?>"
+      dir="<?php echo $language->dir ?>" id="html-main"
+>
 <head>
   <title><?php echo $head_title ?></title>
+  <meta name="fb:admins" content="alexx.todorov,1132904190" />
   <?php echo $head ?>
   <?php echo $styles ?>
   <?php echo $scripts ?>
@@ -119,9 +125,6 @@ no-right-column
 		<!-- /main-content-block --></div>
 		
 <?php if ($content_bottom): ?><div id="content-bottom"><?php echo $content_bottom ?></div><?php endif; ?>
-        
-
-
 
 <!-- PRINTING BLOCK AFTER THE CONTENT -->
 
