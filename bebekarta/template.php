@@ -105,4 +105,10 @@ function phptemplate_upload_attachments($files) {
   return $output;
 }
 
+function phptemplate_podariava_node_form($form){
+   $form['attachments']['#collapsible'] = False;
+   $form['attachments']['#collapsed'] = False;
+   return drupal_render($form)."DEBUG";
+}
+
 ?>
