@@ -4,8 +4,7 @@
       xmlns:fb="http://www.facebook.com/2008/fbml"
       lang="<?php echo $language->language ?>"
       xml:lang="<?php echo $language->language ?>"
-      dir="<?php echo $language->dir ?>" id="html-main"
->
+      dir="<?php echo $language->dir ?>" id="html-main">
 <head>
   <title><?php echo $head_title ?></title>
   <meta name="fb:admins" content="alexx.todorov,1132904190" />
