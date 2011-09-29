@@ -26,7 +26,7 @@
 bebekarta_ver := $(shell cat bebekarta/bebekarta.info | grep core | tr -s ' ' '=' | cut -f 2 -d=)-$(shell cat bebekarta/bebekarta.info | grep version | tr -s ' ' '=' | cut -f 2 -d=)
 
 bebekarta-theme:
-	tar -czvf bebekarta-$(otb_ver).tar.gz --exclude .svn --exclude .svnignore bebekarta/
+	tar -czvf bebekarta-$(bebekarta_ver).tar.gz --exclude .git bebekarta/
 
 
 clean:
