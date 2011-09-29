@@ -1,0 +1,165 @@
+/*
+ * $Id: cutemenu.css,v 1.2.2.6 2010/04/04 23:43:59 alexiswilke Exp $
+ *
+ * Default CSS presenting a default CuteMenu CSS
+ */
+
+.cutemenu-bar {
+  clear: both;
+  display: block;
+}
+
+.cutemenu-baritem {
+  float: left;
+  display: block;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  color: #000;
+}
+
+.cutemenu-baritem .active {font-weight: bold;}
+
+.cutemenu-active {
+  color: #000;
+}
+.cutemenu-baritem-left {
+  display: block;
+  margin: 0;
+  padding: 0;
+  background: none; background-color: #A0A0A0;
+}
+.cutemenu-baritem-right {
+  display: block;
+  margin: 0;
+  padding: 0;
+  background: none; background-color: #A0A0A0;
+}
+.cutemenu-baritem-content {
+  display: block;
+  background: none; background-color: #A0A0A0;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  font-size: inherit;
+}
+
+.cutemenu-baritem-content .cutemenu-link {
+  display: block;
+  color: #000;
+  text-decoration: none;
+}
+.cutemenu-baritem-content .cutemenu-link:hover {
+  display: block;
+  color: #000;
+  text-decoration: underline;
+}
+.cutemenu-baritem a {
+  display: block;
+}
+
+/* By default, hide the sub-menus, these are dropdowns */
+.cutemenu-dropdown-wrapper {
+  position: absolute;
+  margin: 5px 0 0 0;
+  display: none;
+  z-index: 10;
+  text-align: left;
+}
+
+.cutemenu-dropdown-topleft {
+   background: none; background-color: #A0A0A0;
+}
+.cutemenu-dropdown-top {
+  margin-left: 0;
+  margin-right: 0;
+  padding-top: 0;
+  background: none; background-color: #A0A0A0;
+}
+.cutemenu-dropdown-topright {
+  background: none; background-color: #A0A0A0;
+}
+
+.cutemenu-dropdown-bottomleft {
+  background: none; background-color: #A0A0A0;
+}
+.cutemenu-dropdown-bottom {
+  margin-left: 0;
+  margin-right: 0;
+  padding-top: 0;
+  background: none; background-color: #A0A0A0;
+}
+.cutemenu-dropdown-bottomright {
+  background: none; background-color: #A0A0A0;
+}
+
+.cutemenu-dropdown-left {
+  margin: 0;
+  padding: 0;
+}
+
+.cutemenu-dropdown-content {
+  display: block;
+  background: none; background-color: #A0A0A0;
+  min-height: 0px;
+  border-left: none;
+  border-right: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cutemenu-title {
+  padding: 0;
+  height: auto;
+  font-size: 12px;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  border-bottom: none;
+  color: #000;
+}
+
+
+.cutemenu-subitem {
+  padding: 5px 10px;
+  font-size: 10px;
+  white-space: nowrap;
+  border-bottom: none;
+}
+.cutemenu-subitem-active {
+  background: none; background-color: #A0A0A0;
+}
+
+.cutemenu-subitem .cutemenu-link {
+  display: block;
+  margin: 0;
+  padding: 0;
+  color: #000;
+  height: auto;
+  font-weight: bold;
+  text-decoration: none;
+}
+.cutemenu-subitem .cutemenu-link:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.cutemenu-dropdown-header {
+  padding: 0;
+  margin: 0;
+  min-height: 0;
+  display: none;
+}
+.cutemenu-dropdown-header p {
+  padding: 0;
+  margin: 0;
+}
+.cutemenu-dropdown-footer {
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+.cutemenu-dropdown-footer p {
+  padding: 0;
+  margin: 0;
+}

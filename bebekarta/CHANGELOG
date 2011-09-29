@@ -1,0 +1,80 @@
+1.12
+ - Imported from OTBNG theme and renamed
+
+1.11.devel
+ - node.tpl.php
+   o add a check to display taxonomy terms for intranet pages as well
+ - page.tpl.php
+   o don't print breadcrumb
+   o don't print Primary menu edit link
+
+1.11 - 20110306
+ - style.css
+   o rename mission to top-left and top-links to top-right
+
+ - page.tpl.php
+   o remove mission and add top-left and top-right block sections
+   o add top and bottom blocks that take the full width
+
+ - otbng.info
+   o remove mission feature and add top-left and top-right blocks
+   o add top and bottom blocks that take the full width
+
+1.10 - 20110210
+ - style.css
+   o make version string in molues admin page visible
+   o make white-space behave like pre tag
+   o don't hide books in sitemap, sitemap bug was fixed
+
+ - page.tpl.php
+   o remove login information below footer. This is now
+     displayed in the top links section using PHP block.
+   o make admin-menu a region to allow adding other elements
+
+1.9 - 20101120
+ - style.css
+   o add style for 3rd level menu titles which are links
+   o hide books section in sitemap
+   o remove cutemenu items
+
+ - cutemenu.css
+   o cutemenu.css override
+
+ - otbng.info
+   o add the new CSS to the list
+
+1.8 - 20101113
+ o new version to work aroung SVN issues
+
+1.7 - 20101113
+ o release a version with tons of new fixes and changes
+ o this is the first version to go into production
+
+1.6
+ o add several new regions
+ o update css to fit our needs
+ o template.php
+   - get rid of developer signature
+
+ o otbng.info
+   - added new block for top links
+
+ o page.tpl.php, style.css
+   - rename the header background id to something more meaningful
+   - add new block for top links
+
+ o style.css
+   - add repeating background image with dots for the whole page
+   - change the body background color the the grey that we use
+   - use white background for content regions
+   - ix style for top-links
+
+ o psd/, translations/
+   - removed - not used
+
+ o block.tpl.php
+   - don't print block title
+
+1.5 - 20101110
+ o import from upstream analytic-6.x-1.5:
+   http://drupal.org/node/882756
