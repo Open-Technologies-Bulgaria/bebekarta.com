@@ -70,26 +70,6 @@ function phptemplate_menu_local_tasks() {
   return $output;
 }
 
-/* show only 'published at <date>' text without user name if this is not the support theme */
-// otherwise show only date and username
-function phptemplate_node_submitted($node) {
-    $output="";
-
-    if (defined("IS_SUPPORT") && ($node->type == 'support_ticket')) {
-        $publisher = user_load($node->uid);
-
-        $output = t('Published by @user at @date', 
-                 array('@user' => $publisher->name,
-                       '@date' => format_date($node->created, 'custom', 'd M Y')
-                      )
-                );
-    } else {
-        $output = t('Published at @date', array('@date' => format_date($node->created, 'custom', 'd M Y')));
-    }
-
-    return $output;
-}
-
 function phptemplate_links($links, $attributes = array()) {
     /* disable user's blog link into nodes */
     if ($links['blog_usernames_blog']) {
@@ -106,6 +86,23 @@ function phptemplate_links($links, $attributes = array()) {
     }
 
     return theme_links($links, $attributes);
+}
+
+function phptemplate_upload_attachments($files) {
+  $output = "<div id='attachments>'";
+
+  foreach ($files as $file) {
+    $file = (object) $file;
+    if ($file->list && empty($file->remove)) {
+      $href = file_create_url($file->filepath);
+      $text = $file->description ? $file->description : $file->filename;
+      $output .= sprintf('<img src="%s" alt="%s"/><br />', $href, $text);
+    }
+  }
+
+  $output .= "</div>";
+
+  return $output;
 }
 
 ?>
