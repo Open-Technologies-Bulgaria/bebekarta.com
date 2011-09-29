@@ -7,6 +7,8 @@
  - template.php
    o output attachments as images, not a tables
    o remove override for node_submitted
+ - page.tpl.php
+   o use XHTML Strict DOCTYPE
 
 1.11.devel
  - node.tpl.php
