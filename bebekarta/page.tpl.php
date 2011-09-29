@@ -189,12 +189,18 @@ no-right-column
 <script  type="text/javascript">
 <!--
 d=document;
-d.write('<a href="http://www.tyxo.bg/?126298" title="Tyxo.bg counter" target=" blank"><img width="0" height="0" border="0" alt="Tyxo.bg counter"');
+d.write('<div><a href="http://www.tyxo.bg/?126298" title="Tyxo.bg counter"><img width="0" height="0" alt="Tyxo.bg counter"');
 d.write(' src="http://cnt.tyxo.bg/126298?rnd='+Math.round(Math.random()*2147483647));
-d.write('&sp='+screen.width+'x'+screen.height+'&r='+escape(d.referrer)+'" /><\/a>');
+d.write('&sp='+screen.width+'x'+screen.height+'&r='+escape(d.referrer)+'" /><\/a><\/div>');
 //-->
 </script>
-<noscript><a href="http://www.tyxo.bg/?126298" title="Tyxo.bg counter" target="_blank"><img src="http://cnt.tyxo.bg/126298" width="0" height="0" border="0" alt="Tyxo.bg counter" /></a></noscript>
+<noscript>
+  <div>
+    <a href="http://www.tyxo.bg/?126298" title="Tyxo.bg counter">
+      <img src="http://cnt.tyxo.bg/126298" width="0" height="0" alt="Tyxo.bg counter" />
+    </a>
+  </div>
+</noscript>
 <!-- KRAI NA TYXO.BG BROYACH -->
 
 </body>
