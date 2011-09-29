@@ -14,9 +14,3 @@
   <h3><?php print $title; ?></h3>
 <?php endif; ?>
 <?php print $map; ?>
-
-<?php
-// show a list view together with the map view
-    $output = views_embed_view("taxonomy_map", $display_id = 'page_2');
-    print $output;
-?>
