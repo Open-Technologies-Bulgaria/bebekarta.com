@@ -7,8 +7,12 @@
  - template.php
    o output attachments as images, not a tables
    o remove override for node_submitted
+
  - page.tpl.php
    o use XHTML Strict DOCTYPE
+
+ - style.css
+   o don't force white background on images. this breaks Gmap markers.
 
 1.11.devel
  - node.tpl.php

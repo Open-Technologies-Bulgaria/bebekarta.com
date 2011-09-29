@@ -484,6 +484,3 @@ code br {display:none}
 
 /* titles of 3rd level menu which are links  */
 .block-menu_block h2.title a {color: #fff;}
-
-/* IE fixes http://support.microsoft.com/kb/294714 */
-img {background-color: #fff;}
