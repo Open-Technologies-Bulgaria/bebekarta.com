@@ -314,7 +314,7 @@ function abuse_cron() {
 function abuse_link($type, $object, $teaser = FALSE) {
   global $user;
   $links = array();
-  if ($object && $user && $user->uid == $object->uid) {
+  if ($object && $user && !in_array($user->uid,array(0,1)) && $user->uid == $object->uid) {
     // Don't want user to flag their own content
     return $$links;
   }
