@@ -1,7 +1,6 @@
 name = abuse
 description = An abuse system to flag content on the site
 package = "Administration"
-version = VERSION
 core = 6.x
 ; Information added by drupal.org packaging script on 2011-04-14
 version = "6.x-1.2"
