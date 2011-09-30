@@ -1,0 +1,12 @@
+name = watchlist
+description = A filter/check system to validate content on the site
+package = "Administration"
+version = VERSION
+core = 6.x
+dependencies[] = abuse
+; Information added by drupal.org packaging script on 2011-04-14
+version = "6.x-1.2"
+core = "6.x"
+project = "abuse"
+datestamp = "1302812514"
+
