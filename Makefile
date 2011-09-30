@@ -24,13 +24,13 @@
 
 
 bebekarta_ver := $(shell cat bebekarta/bebekarta.info | grep core | tr -s ' ' '=' | cut -f 2 -d=)-$(shell cat bebekarta/bebekarta.info | grep version | tr -s ' ' '=' | cut -f 2 -d=)
-gmap_ver := $(shell cat gmap/gmap.info | grep version | tr -s ' ' '=' | cut -f 2 -d=)
+abuse_ver := $(shell cat abuse/abuse.info | grep version | tr -s ' ' '=' | cut -f 2 -d=)
 
 bebekarta-theme:
 	tar -czvf bebekarta-$(bebekarta_ver).tar.gz --exclude .git bebekarta/
 
-gmap-module:
-	tar -czvf gmap-$(gmap_ver).tar.gz --exclude .git gmap
+abuse-module:
+	tar -czvf abuse-$(abuse_ver).tar.gz --exclude .git abuse
 
 
 clean:
@@ -40,6 +40,6 @@ help:
 	@echo "Usage: make <target>                                    "
 	@echo "                                                        "
 	@echo " bebekarta-theme - build tarball for BebeKarta theme    "
-	@echo " gmap-module - build tarball for customized GMap module "
+	@echo " abuse-module - build tarball for customized Abuse module"
 	@echo " clean - clean files used to build                      "
 	@echo " help - show this help and exit                         "
