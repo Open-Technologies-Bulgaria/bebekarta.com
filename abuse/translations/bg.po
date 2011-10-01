@@ -1,0 +1,724 @@
+# Bulgarian translations for Drupal Abuse module.
+# Copyright (C) 2011 Open Technologies Bulgaria, Ltd.
+# This file is distributed under the same license as the Drupal Abuse module.
+# Alexander Todorov <atodorov@nospam.otb.bg>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: abuse 6.x-1.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-10-01 09:34+0300\n"
+"PO-Revision-Date: 2011-10-01 09:36+0300\n"
+"Last-Translator: Alexander Todorov <atodorov@nospam.otb.bg>\n"
+"Language-Team: Bulgarian <dict@fsa-bg.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: abuse.admin.inc:11
+msgid "Reasons"
+msgstr "Причини"
+
+#: abuse.admin.inc:13
+msgid "You can configure the list of reasons at !link"
+msgstr "Можете да конфигурирате списъка с причини от !link"
+
+#: abuse.admin.inc:17
+msgid "Enable flagging for these content types"
+msgstr "Разрешаване маркирането за следните типове съдържание"
+
+#: abuse.admin.inc:31
+msgid "comments"
+msgstr "коментари"
+
+#: abuse.admin.inc:37 watchlist/watchlist.module:187
+msgid "users"
+msgstr "потребители"
+
+#: abuse.admin.inc:39
+msgid "Users is still a work in progress - do not bother till fully coded out"
+msgstr ""
+
+#: abuse.admin.inc:46
+msgid "Ticketing settings"
+msgstr "Настройки на известяване"
+
+#: abuse.admin.inc:52
+msgid "Abuse Assigned Moderators"
+msgstr "Назначени модератори на злоупотреби"
+
+#: abuse.admin.inc:53
+msgid ""
+"Select this option if you have a pool of moderators and you wish to assign "
+"each one a certain number of tickets to work with."
+msgstr ""
+"Изберете тази опция ако имате екип от модератори и желаете всеки от тях да"
+"обработва определен брой известия."
+
+#: abuse.admin.inc:59
+msgid "Moderator queue limit"
+msgstr "Лимит на опашката за модериране"
+
+#: abuse.admin.inc:61
+msgid ""
+"This field is to set a maximum limit on the number of flagged items that "
+"will be added to the queue of a moderator"
+msgstr ""
+"Това поле задава максималния брой маркирано съдържание, което ще бъде добавено"
+"в опашката на модератора."
+
+#: abuse.admin.inc:67
+msgid "Reset assigned ticket items (Please type hour of day)"
+msgstr ""
+
+#: abuse.admin.inc:76
+msgid "Settings for all abuse content"
+msgstr "Настройки за цялото съдържание"
+
+#: abuse.admin.inc:78
+msgid ""
+"These settings apply to all content that is allowed to be flagged into the "
+"abuse administration system"
+msgstr ""
+"Тези настройки се прилагат на всички типове съдържание, което е позволено да"
+"се маркира чрез системата за злоупотреби."
+
+#: abuse.admin.inc:83
+msgid "Abuse threshold"
+msgstr "Праг на злоупотребяване"
+
+#: abuse.admin.inc:92 abuse.admin.inc:579
+msgid "Warning subject"
+msgstr "Заглавие при предупреждение"
+
+#: abuse.admin.inc:94 abuse.admin.inc:423 abuse.admin.inc:580
+msgid "Abuse warning"
+msgstr "Предупреждение за злоупотреба"
+
+#: abuse.admin.inc:100 abuse.admin.inc:587
+msgid "Warning body"
+msgstr "Съобщение при предупреждение"
+
+#: abuse.admin.inc:109
+msgid "Warning BCC"
+msgstr "BCC адрес при предупреждение"
+
+#: abuse.admin.inc:116
+msgid "Abuse form intro text"
+msgstr ""
+
+#: abuse.admin.inc:130
+msgid "Add new reason"
+msgstr "Добавяне на нова причина"
+
+#: abuse.admin.inc:137 abuse.admin.inc:213
+msgid "Reason"
+msgstr "Причина"
+
+#: abuse.admin.inc:138 abuse.admin.inc:214
+msgid "Provide a short form of what the reason is"
+msgstr "Кратко описание на причината"
+
+#: abuse.admin.inc:144 abuse.admin.inc:186 abuse.admin.inc:221
+msgid "Description"
+msgstr "Описание"
+
+#: abuse.admin.inc:145 abuse.admin.inc:222
+msgid "A more details description of what the reason is"
+msgstr "Подробно описание на причината"
+
+#: abuse.admin.inc:151 abuse.admin.inc:229
+msgid "Email Notice addition"
+msgstr "Добавяне на известие по ел. поща"
+
+#: abuse.admin.inc:152
+msgid "Text that will automatically be included in the warning email."
+msgstr "Текст, който автоматично ще бъде включен в известието за предупреждение."
+
+#: abuse.admin.inc:158 abuse.admin.inc:237 abuse.admin.inc:250
+#: abuse.admin.inc:266 abuse.admin.inc:284 abuse.admin.inc:300
+msgid "Save"
+msgstr "Запазване"
+
+#: abuse.admin.inc:164
+msgid "Current list of reasons - check items that you wish to remove"
+msgstr "Текущ списък от причини - отбележете тези, които желаете да премахнете"
+
+#: abuse.admin.inc:178
+msgid "Remove from of list of reasons"
+msgstr "Премахване от списъка с причини"
+
+#: abuse.admin.inc:190
+msgid "Email content"
+msgstr ""
+
+#: abuse.admin.inc:195 abuse.admin.inc:271
+msgid "Remove"
+msgstr "Премахване"
+
+#: abuse.admin.inc:230
+msgid "Text that should automatically be included in the warning email."
+msgstr "Текст, който трябва автоматично да бъде включен в известието за предупреждение."
+
+#: abuse.admin.inc:241
+msgid "Cancel"
+msgstr "Отказване"
+
+#: abuse.admin.inc:252 abuse.admin.inc:286
+msgid "You MUST provide a reason."
+msgstr "ТРЯБВА да посочите причина."
+
+#: abuse.admin.inc:255 abuse.admin.inc:289
+msgid "You MUST provide a description of the reason."
+msgstr "ТРЯБВА да въведете описание на причината."
+
+#: abuse.admin.inc:258 abuse.admin.inc:292
+msgid ""
+"You MUST provide an email notice that may be sent to the user for this "
+"reason."
+msgstr ""
+"ТРЯБВА да въведете текст за известие по ел. поща, което ще бъде изпратено"
+"на потребителя във връзка с тази причина."
+
+#: abuse.admin.inc:269
+msgid "Added new reason to list"
+msgstr "Добавена е нова причина към списъка"
+
+#: abuse.admin.inc:303
+msgid "Reason edit "
+msgstr "Редактиране на причина "
+
+#: abuse.admin.inc:378
+msgid "Sorry, this content could not be allowed"
+msgstr "Съжаляваме, но това съдържание не може да бъде позволено"
+
+#: abuse.admin.inc:382
+msgid "Item allowed"
+msgstr "Съдържанието е позволено"
+
+#: abuse.admin.inc:391
+msgid "Sorry, this content could not be removed"
+msgstr "Съжаляваме, но това съдържание не може да бъде премахнато"
+
+#: abuse.admin.inc:395
+msgid "Item removed: %title"
+msgstr "Съдържанието е премахнато: %title"
+
+#: abuse.admin.inc:403
+msgid "Sorry, this content could not be sent to the super moderator"
+msgstr "Съжаляваме, но това съдържание не може да бъде изпратено на супер модератора"
+
+#: abuse.admin.inc:407
+msgid "Item sent to super moderator: %title"
+msgstr "Съдържанието е изпратено на супер модератор: %title"
+
+#: abuse.admin.inc:416
+msgid ""
+"Sorry, the user could not be warned and the operation could not be carried "
+"out"
+msgstr ""
+
+#: abuse.admin.inc:436
+msgid "Your message has been sent."
+msgstr "Вашето съобщение е изпратено."
+
+#: abuse.admin.inc:462
+msgid "The user @name has been unbanned"
+msgstr "Потребителя @name е разблокиран"
+
+#: abuse.admin.inc:510
+msgid "Allow content on site?"
+msgstr "Позволяване публикуване на сайта?"
+
+#: abuse.admin.inc:519
+msgid "Are you sure you want to allow \"@content\"?"
+msgstr "Сигурни ли сте, че искате да позволите публикуването на \"@content\"?"
+
+#: abuse.admin.inc:526 abuse.admin.inc:673
+msgid "allow"
+msgstr "Позволяване"
+
+#: abuse.admin.inc:532
+msgid "Remove content from site?"
+msgstr "Премахване на публикацията от сайта?"
+
+#: abuse.admin.inc:541
+msgid "Are you sure you want to remove \"@content\"?"
+msgstr "Сигурни ли сте, че искате да премахнете \"@content\"?"
+
+#: abuse.admin.inc:548 abuse.admin.inc:676
+msgid "remove"
+msgstr "Премахване"
+
+#: abuse.admin.inc:554 abuse.admin.inc:688
+msgid "assign to superadmin"
+msgstr "Назначаване на супер администратор"
+
+#: abuse.admin.inc:560
+msgid "Warn and Allow"
+msgstr "Предупреждение и позволение"
+
+#: abuse.admin.inc:570
+msgid "Warn and Remove"
+msgstr "Предупреждение и премахване"
+
+#: abuse.admin.inc:591
+msgid ""
+"available fields are !title, !url, !name, and !id. You can copy from the "
+"list below."
+msgstr ""
+
+#: abuse.admin.inc:608 abuse.admin.inc:679
+msgid "warn and allow"
+msgstr "Предупреждение и позволение"
+
+#: abuse.admin.inc:613 abuse.admin.inc:682
+msgid "warn and remove"
+msgstr "Предупреждение и премахване"
+
+#: abuse.admin.inc:619
+msgid "Ban !user?"
+msgstr "Блокиране на потребител !user?"
+
+#: abuse.admin.inc:628 abuse.admin.inc:731
+msgid "Are you sure you want to ban \"@name\"?"
+msgstr "Сигурни ли сте, че желаете да блокирате \"@name\"?"
+
+#: abuse.admin.inc:635 abuse.admin.inc:645 abuse.admin.inc:685
+msgid "ban"
+msgstr "Блокиране"
+
+#: abuse.admin.inc:646
+msgid "User cannot be banned"
+msgstr "Потребителят не може да бъде блокиран"
+
+#: abuse.admin.inc:671
+msgid "Sorry, could not perform requested operation."
+msgstr "Операцията не може да бъде извършена."
+
+#: abuse.admin.inc:705
+msgid "Sorry, you are not allowed to ban this user"
+msgstr "Нямата право да блокирате този потребител"
+
+#: abuse.admin.inc:711
+msgid "Ban !user"
+msgstr "Блокиране на потребител !user"
+
+#: abuse.admin.inc:735 abuse.admin.inc:752 abuse.admin.inc:768
+msgid "Yes"
+msgstr "Да"
+
+#: abuse.admin.inc:740
+msgid "No"
+msgstr "Не"
+
+#: abuse.admin.inc:753
+msgid "You cannot ban the site administrator or yourself."
+msgstr "Не можете да блокирате администратора на сайта или себе си."
+
+#: abuse.admin.inc:778
+msgid "The user @name has been banned."
+msgstr "Потребителя @name е блокиран."
+
+#: abuse.install:30
+msgid "A way to associate a flag for content by a user"
+msgstr ""
+
+#: abuse.install:33
+msgid "ID of the flag"
+msgstr "ID на маркировката"
+
+#: abuse.install:39 abuse.install:107 abuse.install:150 abuse.install:196
+msgid "Original content ID"
+msgstr "Оригинално ID на съдържанието"
+
+#: abuse.install:45 abuse.install:113 abuse.install:156 abuse.install:202
+msgid "Content Type"
+msgstr "Тип съдържание"
+
+#: abuse.install:52
+msgid "ID of user flagging content"
+msgstr "ID на маркиращия потребител"
+
+#: abuse.install:59 abuse.install:66
+msgid "Name of user"
+msgstr "Име на потребител"
+
+#: abuse.install:73
+msgid "General reason for flagging content"
+msgstr "Причина за маркирането"
+
+#: abuse.install:80
+msgid "Text from user on what is wrong with content"
+msgstr "Описание от потребителя какво не е наред със съдържанието"
+
+#: abuse.install:85
+msgid "Check that the flag is valid"
+msgstr "Проверка дали флагът е валиден"
+
+#: abuse.install:93 abuse.install:134 abuse.install:224
+msgid "Timestamp"
+msgstr "Времеви маркер"
+
+#: abuse.install:104
+msgid ""
+"A list of warnings that have been sent out to users for inappropriate content"
+msgstr ""
+
+#: abuse.install:120 abuse.install:127 abuse.install:209
+msgid "Flagged content user ID"
+msgstr ""
+
+#: abuse.install:147
+msgid "Current status of a particular piece of content"
+msgstr ""
+
+#: abuse.install:163
+msgid "Moderating user content has been assigned to"
+msgstr ""
+
+#: abuse.install:170
+msgid "Last timestamp of when content status was added/changed"
+msgstr ""
+
+#: abuse.install:177
+msgid "Current status of the content"
+msgstr ""
+
+#: abuse.install:193
+msgid "A log of the change to the status of a given content"
+msgstr ""
+
+#: abuse.install:216
+msgid "Status of the content"
+msgstr ""
+
+#: abuse.install:236
+msgid "A customizable reasons (categories) for flagging content on the site"
+msgstr ""
+
+#: abuse.install:239
+msgid "Reason ID"
+msgstr ""
+
+#: abuse.install:245
+msgid "Short sentence of reason for flagging content"
+msgstr ""
+
+#: abuse.install:252
+msgid "A description for admins on what this reason is"
+msgstr ""
+
+#: abuse.install:258
+msgid "Text that will be added to the email body"
+msgstr ""
+
+#: abuse.install:273
+msgid "The user wrote very mean things"
+msgstr ""
+
+#: abuse.install:273 abuse.install:274 abuse.install:275 abuse.install:276
+#: abuse.install:277
+msgid "Please refrain from writing such mean things"
+msgstr ""
+
+#: abuse.install:274
+msgid "The user's wrote very explicit language"
+msgstr ""
+
+#: abuse.install:275
+msgid "The user wrote very derogatory comments"
+msgstr ""
+
+#: abuse.install:276
+msgid "The user wrote about private information"
+msgstr ""
+
+#: abuse.install:277
+msgid "The user wrote about other types of mean things"
+msgstr ""
+
+#: abuse.module:89
+msgid "allow users to report abusive content"
+msgstr ""
+
+#: abuse.module:324
+msgid "View abuse history"
+msgstr ""
+
+#: abuse.module:337 abuse.module:347 abuse.module:378 abuse.module:388
+msgid "Flag as offensive"
+msgstr ""
+
+#: abuse.module:340 abuse.module:350
+msgid "Notify administrators of problematic content"
+msgstr ""
+
+#: abuse.module:381 abuse.module:391
+msgid "Notify administrators of problematic comment"
+msgstr ""
+
+#: abuse.module:440
+msgid "here"
+msgstr ""
+
+#: abuse.module:445
+msgid "Click !link to unban @username."
+msgstr ""
+
+#: abuse.module:495
+msgid "Abuse Moderation Settings"
+msgstr ""
+
+#: abuse.module:500
+msgid "Allow flagging for @type nodes"
+msgstr ""
+
+#: abuse.module:546
+msgid "Sorry, you cannot flag your own content"
+msgstr ""
+
+#: abuse.module:550
+msgid "Sorry, you are not allowed to flag this content"
+msgstr ""
+
+#: abuse.module:569 abuse.module:584 abuse.module:634
+msgid "from"
+msgstr ""
+
+#: abuse.module:591
+msgid "email"
+msgstr "Ел. поща"
+
+#: abuse.module:599
+msgid "about"
+msgstr "Относно"
+
+#: abuse.module:609
+msgid "reason"
+msgstr "Причина"
+
+#: abuse.module:615
+msgid "message"
+msgstr "Съобщение"
+
+#: abuse.module:621 abuse.module:632
+msgid "send"
+msgstr "Изпращане"
+
+#: abuse.module:625 abuse.module:669
+msgid "cancel"
+msgstr "Отказване"
+
+#: abuse.module:634
+msgid "<em>!field</em> is required"
+msgstr "Полето <em>!field</em> е задължително"
+
+#: abuse.module:637
+msgid "A valid email address is required."
+msgstr "Необходим е валиден адрес на ел. поща"
+
+#: abuse.module:640
+msgid "Please give a reason."
+msgstr "Поля посочете причина"
+
+#: abuse.module:644
+msgid "Please provide a more detailed description - no links please."
+msgstr "Моля посочете по-подробно описание. Моля не изпращайте връзки."
+
+#: abuse.module:651
+msgid "Please do not use links in your description of the problem."
+msgstr "Моля не използвайте връзки към страници в описанието на проблема."
+
+#: abuse.module:672
+msgid "We have already received your report.  Thank you very much!"
+msgstr "Получихме вашето съобщение. Благодарим ви!"
+
+#: abuse.module:678
+msgid "You cannot flag your own content"
+msgstr "Не можете да маркирате собственото си съдържание"
+
+#: abuse.module:690
+msgid "Thank you for your report.  We will look into this shortly."
+msgstr "Благодарим ви за съобщението. Скоро ще бъде обработено."
+
+#: abuse.module:694
+msgid "Thank you for your report."
+msgstr "Благодарим ви за съобщението."
+
+#: abuse.module:805
+msgid "Anonymous Admin"
+msgstr ""
+
+#: abuse.module:908
+msgid "OK"
+msgstr "OK"
+
+#: abuse.module:909
+msgid "Pending"
+msgstr "В изчакване"
+
+#: abuse.module:910
+msgid "Hidden"
+msgstr "Скрито"
+
+#: abuse.module:911
+msgid "Removed"
+msgstr "Премахнато"
+
+#: abuse.module:912
+msgid "Superadmin Assigned"
+msgstr ""
+
+#: abuse.module:961
+msgid "Invalid user account - content cannot be allowed"
+msgstr ""
+
+#: watchlist/watchlist.module:37
+msgid "Bad words filter"
+msgstr "Филтър за лоши думи"
+
+#: watchlist/watchlist.module:39
+msgid "Replaces bad words in the string with a user specified safe text"
+msgstr "Заменя лошите думи в низа с безопасен текст определен от потребителя"
+
+#: watchlist/watchlist.module:67
+msgid "Watchlist Settings"
+msgstr "Настройки на списъка за наблюдение"
+
+#: watchlist/watchlist.module:72
+msgid "Do you wish to have @type nodes moderated?"
+msgstr "Желаете ли да модерирате съдържание от тип @type?"
+
+#: watchlist/watchlist.module:73
+msgid ""
+"Moderated content automatically flags any content that may be questionable.  "
+"If content is found to contain any of words (or match regular expressions) "
+"found from the watchlist or banned list, the node is placed into a pending "
+"or hidden pile, respectively.  In the case of the latter, it is hidden to "
+"other users so the moderator can decide what should be done."
+msgstr ""
+
+#: watchlist/watchlist.module:79
+msgid "Do you wish to have @type nodes pre-moderated?"
+msgstr "Желаете ли предварително да модерирате съдържание от тип @type?"
+
+#: watchlist/watchlist.module:80
+msgid ""
+"PRE-Moderated content is automatically hidden on the site and placed into an "
+"appropriate bin depending on how good or bad the content may be.  It is then "
+"up to the moderator to allow or remove the node from being displayed on the "
+"site."
+msgstr ""
+
+#: watchlist/watchlist.module:124
+msgid "Watchlist word settings"
+msgstr "Списък с думи за наблюдение"
+
+#: watchlist/watchlist.module:125
+msgid ""
+"These words fall in a grey area of being good or bad.  Content found with "
+"these words will be flagged into the pending pile (and into a hidden pile if "
+"premoderation is allowed on the content type)"
+msgstr ""
+
+#: watchlist/watchlist.module:131
+msgid "Watch list"
+msgstr "Списък за наблюдение"
+
+#: watchlist/watchlist.module:135
+msgid "The watch list, one per line.  Do not use empty line breaks."
+msgstr ""
+
+#: watchlist/watchlist.module:138
+msgid "Filtered/banned word settings"
+msgstr "Настройки на филтрирани/забранени думи"
+
+#: watchlist/watchlist.module:139
+msgid ""
+"These words will enable content to be automatically flagged on the site and, "
+"if allowed back on site, filters the banned words"
+msgstr ""
+
+#: watchlist/watchlist.module:146
+msgid "Filtered/banned word list"
+msgstr ""
+
+#: watchlist/watchlist.module:150
+msgid "The banned word list, one per line.  Do not use empty line breaks."
+msgstr ""
+
+#: watchlist/watchlist.module:153
+msgid "Replacement string"
+msgstr ""
+
+#: watchlist/watchlist.module:158
+msgid "String to replace banned words with"
+msgstr ""
+
+#: watchlist/watchlist.module:163
+msgid ""
+"Enable moderation from the watchlist and banned list for these content types"
+msgstr ""
+
+#: watchlist/watchlist.module:164
+msgid ""
+"Content gets flagged into a pending pile (users can still view item) if a "
+"match is found in the watchlist.  Content gets flagged into hidden pile "
+"(hidden from users) if a match is from from the bannedlist.  Users will only "
+"be validated against banned words."
+msgstr ""
+
+#: watchlist/watchlist.module:181 watchlist/watchlist.module:211
+msgid "comment"
+msgstr ""
+
+#: watchlist/watchlist.module:189
+msgid "Validate the username is not part of a bad list of words"
+msgstr ""
+
+#: watchlist/watchlist.module:196
+msgid ""
+"Enable pre-moderation from the watchlist and banned list for these content "
+"types"
+msgstr ""
+
+#: watchlist/watchlist.module:197
+msgid "Content gets flagged regardless of abuse module setting."
+msgstr ""
+
+#: watchlist/watchlist.module:234
+msgid "Please remove all empty line breaks from the %list list"
+msgstr ""
+
+#: watchlist/watchlist.module:251
+msgid "Test out watchlist word settings"
+msgstr ""
+
+#: watchlist/watchlist.module:252
+msgid "Test the validity of the watch word list and banned word list."
+msgstr ""
+
+#: watchlist/watchlist.module:258
+msgid "Test Box"
+msgstr ""
+
+#: watchlist/watchlist.module:262
+msgid "The text you wish to test."
+msgstr ""
+
+#: watchlist/watchlist.module:268 watchlist/watchlist.module:284
+msgid "test"
+msgstr "тест"
+
+#: watchlist/watchlist.module:354
+msgid "Inappropriate name !name requested."
+msgstr ""
+
+#: watchlist/watchlist.module:471
+msgid "Watchlist"
+msgstr "Списък за наблюдение"
+
+#: watchlist/watchlist.module:501
+msgid "No watched or banned words found."
+msgstr ""
