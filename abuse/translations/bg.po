@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: abuse 6.x-1.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-01 11:07+0300\n"
+"POT-Creation-Date: 2011-10-01 11:18+0300\n"
 "PO-Revision-Date: 2011-10-01 09:36+0300\n"
 "Last-Translator: Alexander Todorov <atodorov@nospam.otb.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
@@ -33,11 +33,11 @@ msgstr "Назначени модератори на злоупотреби"
 
 #: abuse.module:495
 msgid "Abuse Moderation Settings"
-msgstr ""
+msgstr "Настройки на модератори"
 
 #: abuse.admin.inc:116
 msgid "Abuse form intro text"
-msgstr ""
+msgstr "Интро текст"
 
 #: abuse.admin.inc:83
 msgid "Abuse threshold"
@@ -61,11 +61,11 @@ msgstr "Позволяване публикуване на сайта?"
 
 #: abuse.module:500
 msgid "Allow flagging for @type nodes"
-msgstr ""
+msgstr "Позволяване маркиране на публикации от тип @type"
 
 #: abuse.module:805
 msgid "Anonymous Admin"
-msgstr ""
+msgstr "Анонимен админ"
 
 #: abuse.admin.inc:519
 msgid "Are you sure you want to allow \"@content\"?"
@@ -97,7 +97,7 @@ msgstr "Отказване"
 
 #: abuse.module:445
 msgid "Click !link to unban @username."
-msgstr ""
+msgstr "Посетете !link, за да раблокирате потребителя @username."
 
 #: watchlist/watchlist.module:164
 msgid ""
@@ -106,10 +106,15 @@ msgid ""
 "(hidden from users) if a match is from from the bannedlist.  Users will only "
 "be validated against banned words."
 msgstr ""
+"Съдържанието се маркира и попада в опашката за изчакване, ако е намерено съвпадение в списъка за наблюдение. "
+"Потребителите все още могат да виждат публикациите. Съдържанието се маркира и попада в опашката за скриване, ако"
+"е намерено съвпадение в списъка със забранени думи. Публикацията е скрита от потребителите."
+"Потребителите ще бъдат валидирани само срещу списъка със забранени думи"
 
 #: watchlist/watchlist.module:197
 msgid "Content gets flagged regardless of abuse module setting."
 msgstr ""
+"Съдържанието се маркира независимо от настройките на модула за злоупотреби"
 
 #: abuse.admin.inc:164
 msgid "Current list of reasons - check items that you wish to remove"
@@ -133,7 +138,7 @@ msgstr "Добавяне на известие по ел. поща"
 
 #: abuse.admin.inc:190
 msgid "Email content"
-msgstr ""
+msgstr "Текст на съобщението"
 
 #: abuse.admin.inc:17
 msgid "Enable flagging for these content types"
@@ -143,16 +148,20 @@ msgstr "Разрешаване маркирането за следните ти
 msgid ""
 "Enable moderation from the watchlist and banned list for these content types"
 msgstr ""
+"Включване на модериране от списъците за наблюдение и забранени думи за "
+"следните типове съдържание"
 
 #: watchlist/watchlist.module:196
 msgid ""
 "Enable pre-moderation from the watchlist and banned list for these content "
 "types"
 msgstr ""
+"Включване на предварително модериране от списъците за наблюдение и забранени "
+"думи за следните типове съдържание"
 
 #: watchlist/watchlist.module:146
 msgid "Filtered/banned word list"
-msgstr ""
+msgstr "Списък с филтрирани/забранени думи"
 
 #: watchlist/watchlist.module:138
 msgid "Filtered/banned word settings"
@@ -160,7 +169,7 @@ msgstr "Настройки на филтрирани/забранени думи
 
 #: abuse.module:337 abuse.module:347 abuse.module:378 abuse.module:388
 msgid "Flag as offensive"
-msgstr ""
+msgstr "Маркирай като нередно"
 
 #: abuse.module:910
 msgid "Hidden"
@@ -168,11 +177,12 @@ msgstr "Скрито"
 
 #: watchlist/watchlist.module:354
 msgid "Inappropriate name !name requested."
-msgstr ""
+msgstr "Заявено е неподходящо име !name."
 
 #: abuse.module:961
 msgid "Invalid user account - content cannot be allowed"
 msgstr ""
+"Невалидна потребителска сметка - съдържанието не може да бъде позволено"
 
 #: abuse.admin.inc:382
 msgid "Item allowed"
@@ -194,6 +204,11 @@ msgid ""
 "or hidden pile, respectively.  In the case of the latter, it is hidden to "
 "other users so the moderator can decide what should be done."
 msgstr ""
+"Модерираното съдържание автоматично се маркира, ако се счита за съмнително. "
+"Ако съдържанието съдържа някои думи или отговаря на regular expression от "
+"списъците за наблюдение и забранени думи, публикацията се изпраща в опашката за "
+"изчакване или на скрити публикации. В последния случай публикацията е скрита и "
+"модератора трябва да реши какво да се направи."
 
 #: abuse.admin.inc:59
 msgid "Moderator queue limit"
@@ -205,15 +220,15 @@ msgstr "Не"
 
 #: watchlist/watchlist.module:501
 msgid "No watched or banned words found."
-msgstr ""
+msgstr "Не са намарени забранени или наблюдавани думи."
 
 #: abuse.module:381 abuse.module:391
 msgid "Notify administrators of problematic comment"
-msgstr ""
+msgstr "Известяване на администраторите за проблем с коментара"
 
 #: abuse.module:340 abuse.module:350
 msgid "Notify administrators of problematic content"
-msgstr ""
+msgstr "Известяване на администраторите за проблем със съдържанието"
 
 #: abuse.module:908
 msgid "OK"
@@ -226,6 +241,9 @@ msgid ""
 "up to the moderator to allow or remove the node from being displayed on the "
 "site."
 msgstr ""
+"ПРЕДВАРИТЕЛНО модерираното съдържание автоматично се скрива от сайта и се постава "
+"в опашката за модериране. След това модераторът трябва да реши дали да разреши или премахне "
+"публикацията от сайта."
 
 #: abuse.module:909
 msgid "Pending"
@@ -245,7 +263,7 @@ msgstr "Моля посочете по-подробно описание. Мол
 
 #: watchlist/watchlist.module:234
 msgid "Please remove all empty line breaks from the %list list"
-msgstr ""
+msgstr "Премахнете всички празни нови редове от списъка %list"
 
 #: abuse.admin.inc:138 abuse.admin.inc:214
 msgid "Provide a short form of what the reason is"
@@ -281,7 +299,7 @@ msgstr "Премахнато"
 
 #: watchlist/watchlist.module:153
 msgid "Replacement string"
-msgstr ""
+msgstr "Заместващ низ"
 
 #: watchlist/watchlist.module:39
 msgid "Replaces bad words in the string with a user specified safe text"
@@ -289,7 +307,7 @@ msgstr "Заменя лошите думи в низа с безопасен т�
 
 #: abuse.admin.inc:67
 msgid "Reset assigned ticket items (Please type hour of day)"
-msgstr ""
+msgstr "Изчистване на назначените задачки (Моля напишете часа от деня)"
 
 #: abuse.admin.inc:158 abuse.admin.inc:237 abuse.admin.inc:250
 #: abuse.admin.inc:266 abuse.admin.inc:284 abuse.admin.inc:300
@@ -302,7 +320,7 @@ msgid ""
 "each one a certain number of tickets to work with."
 msgstr ""
 "Изберете тази опция ако имате екип от модератори и желаете всеки от тях "
-"даобработва определен брой известия."
+"да обработва определен брой задачи."
 
 #: abuse.admin.inc:76
 msgid "Settings for all abuse content"
@@ -317,6 +335,7 @@ msgid ""
 "Sorry, the user could not be warned and the operation could not be carried "
 "out"
 msgstr ""
+"Потребителя не може да бъде преупреден. Операцията не може да се изпълни."
 
 #: abuse.admin.inc:378
 msgid "Sorry, this content could not be allowed"
@@ -337,31 +356,31 @@ msgstr "Нямата право да блокирате този потреби�
 
 #: abuse.module:550
 msgid "Sorry, you are not allowed to flag this content"
-msgstr ""
+msgstr "Не ви е позволено да маркирате това съдържание"
 
 #: abuse.module:546
 msgid "Sorry, you cannot flag your own content"
-msgstr ""
+msgstr "Не можете да маркирате собственото си съдържание"
 
 #: watchlist/watchlist.module:158
 msgid "String to replace banned words with"
-msgstr ""
+msgstr "Низ за замяна на забранените думи"
 
 #: abuse.module:912
 msgid "Superadmin Assigned"
-msgstr ""
+msgstr "Назначено на супер администратор"
 
 #: watchlist/watchlist.module:258
 msgid "Test Box"
-msgstr ""
+msgstr "Поле за тестване"
 
 #: watchlist/watchlist.module:251
 msgid "Test out watchlist word settings"
-msgstr ""
+msgstr "Изпробване настройките за наблюдение"
 
 #: watchlist/watchlist.module:252
 msgid "Test the validity of the watch word list and banned word list."
-msgstr ""
+msgstr "Изпробване валидността на списъците за наблюдение и забранени думи."
 
 #: abuse.admin.inc:230
 msgid "Text that should automatically be included in the warning email."
@@ -384,11 +403,11 @@ msgstr "Благодарим ви за съобщението. Скоро ще �
 
 #: watchlist/watchlist.module:150
 msgid "The banned word list, one per line.  Do not use empty line breaks."
-msgstr ""
+msgstr "Списък със забранени думи, по една на ред. Не използвайте празни редове."
 
 #: watchlist/watchlist.module:262
 msgid "The text you wish to test."
-msgstr ""
+msgstr "Текстът, който желаете да изпробвате."
 
 #: abuse.admin.inc:778
 msgid "The user @name has been banned."
@@ -400,7 +419,7 @@ msgstr "Потребителя @name е разблокиран"
 
 #: watchlist/watchlist.module:135
 msgid "The watch list, one per line.  Do not use empty line breaks."
-msgstr ""
+msgstr "Списък с думи за наблюдение, по една на ред. Не използвайте презни редове."
 
 #: abuse.admin.inc:78
 msgid ""
@@ -416,12 +435,17 @@ msgid ""
 "these words will be flagged into the pending pile (and into a hidden pile if "
 "premoderation is allowed on the content type)"
 msgstr ""
+"Тези думи са нито добри, нито лоши. Съдържанието с тези думи ще бъде маркирано "
+"и изпратено за изчакване или скрито, ако е включено предварително модериране "
+"за този тип съдържание."
 
 #: watchlist/watchlist.module:139
 msgid ""
 "These words will enable content to be automatically flagged on the site and, "
 "if allowed back on site, filters the banned words"
 msgstr ""
+"Тези думи ще позволят автоматично маркиране на съдържанието и ако то бъде разрешено "
+"ще филтрира забранените думи."
 
 #: abuse.admin.inc:61
 msgid ""
@@ -433,7 +457,7 @@ msgstr ""
 
 #: abuse.admin.inc:46
 msgid "Ticketing settings"
-msgstr "Настройки на известяване"
+msgstr "Настройки за задачки"
 
 #: abuse.admin.inc:646
 msgid "User cannot be banned"
@@ -441,15 +465,15 @@ msgstr "Потребителят не може да бъде блокиран"
 
 #: abuse.admin.inc:39
 msgid "Users is still a work in progress - do not bother till fully coded out"
-msgstr ""
+msgstr "Поддръжката на Потребители е все още в процес на разработка. Не се занимавайте с това."
 
 #: watchlist/watchlist.module:189
 msgid "Validate the username is not part of a bad list of words"
-msgstr ""
+msgstr "Проверка дали потребителското име не е част от списъка с лоши думи"
 
 #: abuse.module:324
 msgid "View abuse history"
-msgstr ""
+msgstr "История на злоупотребите"
 
 #: abuse.admin.inc:560
 msgid "Warn and Allow"
@@ -537,7 +561,7 @@ msgstr "Позволяване"
 
 #: abuse.module:89
 msgid "allow users to report abusive content"
-msgstr ""
+msgstr "Позволи на потребителите да съобщават за нередно съдържание"
 
 #: abuse.admin.inc:554 abuse.admin.inc:688
 msgid "assign to superadmin"
@@ -548,6 +572,7 @@ msgid ""
 "available fields are !title, !url, !name, and !id. You can copy from the "
 "list below."
 msgstr ""
+"Възможните полета са !title, !url, !name и !id. Можете да копирате от списъка по долу."
 
 #: abuse.admin.inc:635 abuse.admin.inc:645 abuse.admin.inc:685
 msgid "ban"
@@ -559,7 +584,7 @@ msgstr "Отказване"
 
 #: watchlist/watchlist.module:181 watchlist/watchlist.module:211
 msgid "comment"
-msgstr ""
+msgstr "Коментар"
 
 #: abuse.admin.inc:31
 msgid "comments"
@@ -571,11 +596,11 @@ msgstr "Ел. поща"
 
 #: abuse.module:569 abuse.module:584 abuse.module:634
 msgid "from"
-msgstr ""
+msgstr "От"
 
 #: abuse.module:440
 msgid "here"
-msgstr ""
+msgstr "Тук"
 
 #: abuse.module:615
 msgid "message"
@@ -609,29 +634,3 @@ msgstr "Предупреждение и позволение"
 msgid "warn and remove"
 msgstr "Предупреждение и премахване"
 
-#~ msgid "Check that the flag is valid"
-#~ msgstr "Проверка дали флагът е валиден"
-
-#~ msgid "Content Type"
-#~ msgstr "Тип съдържание"
-
-#~ msgid "General reason for flagging content"
-#~ msgstr "Причина за маркирането"
-
-#~ msgid "ID of the flag"
-#~ msgstr "ID на маркировката"
-
-#~ msgid "ID of user flagging content"
-#~ msgstr "ID на маркиращия потребител"
-
-#~ msgid "Name of user"
-#~ msgstr "Име на потребител"
-
-#~ msgid "Original content ID"
-#~ msgstr "Оригинално ID на съдържанието"
-
-#~ msgid "Text from user on what is wrong with content"
-#~ msgstr "Описание от потребителя какво не е наред със съдържанието"
-
-#~ msgid "Timestamp"
-#~ msgstr "Времеви маркер"
