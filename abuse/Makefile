@@ -11,7 +11,8 @@
 
 POT_NAME := "translations/abuse.pot"
 pot:
-	xgettext -L PHP --keyword=t abuse.* watchlist/* -o $(POT_NAME)
+	find -name "abuse.*" -or -name "watchlist.*" | grep -v translations | grep -v "\.install" | xargs \
+	xgettext -L PHP --keyword=t -o $(POT_NAME)
 
 update: pot
 	for f in translations/*.po; do msgmerge -s -U $$f $(POT_NAME); done

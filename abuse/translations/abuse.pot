@@ -8,13 +8,166 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-01 09:34+0300\n"
+"POT-Creation-Date: 2011-10-01 11:07+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: watchlist/watchlist.module:37
+msgid "Bad words filter"
+msgstr ""
+
+#: watchlist/watchlist.module:39
+msgid "Replaces bad words in the string with a user specified safe text"
+msgstr ""
+
+#: watchlist/watchlist.module:67
+msgid "Watchlist Settings"
+msgstr ""
+
+#: watchlist/watchlist.module:72
+msgid "Do you wish to have @type nodes moderated?"
+msgstr ""
+
+#: watchlist/watchlist.module:73
+msgid ""
+"Moderated content automatically flags any content that may be questionable.  "
+"If content is found to contain any of words (or match regular expressions) "
+"found from the watchlist or banned list, the node is placed into a pending "
+"or hidden pile, respectively.  In the case of the latter, it is hidden to "
+"other users so the moderator can decide what should be done."
+msgstr ""
+
+#: watchlist/watchlist.module:79
+msgid "Do you wish to have @type nodes pre-moderated?"
+msgstr ""
+
+#: watchlist/watchlist.module:80
+msgid ""
+"PRE-Moderated content is automatically hidden on the site and placed into an "
+"appropriate bin depending on how good or bad the content may be.  It is then "
+"up to the moderator to allow or remove the node from being displayed on the "
+"site."
+msgstr ""
+
+#: watchlist/watchlist.module:124
+msgid "Watchlist word settings"
+msgstr ""
+
+#: watchlist/watchlist.module:125
+msgid ""
+"These words fall in a grey area of being good or bad.  Content found with "
+"these words will be flagged into the pending pile (and into a hidden pile if "
+"premoderation is allowed on the content type)"
+msgstr ""
+
+#: watchlist/watchlist.module:131
+msgid "Watch list"
+msgstr ""
+
+#: watchlist/watchlist.module:135
+msgid "The watch list, one per line.  Do not use empty line breaks."
+msgstr ""
+
+#: watchlist/watchlist.module:138
+msgid "Filtered/banned word settings"
+msgstr ""
+
+#: watchlist/watchlist.module:139
+msgid ""
+"These words will enable content to be automatically flagged on the site and, "
+"if allowed back on site, filters the banned words"
+msgstr ""
+
+#: watchlist/watchlist.module:146
+msgid "Filtered/banned word list"
+msgstr ""
+
+#: watchlist/watchlist.module:150
+msgid "The banned word list, one per line.  Do not use empty line breaks."
+msgstr ""
+
+#: watchlist/watchlist.module:153
+msgid "Replacement string"
+msgstr ""
+
+#: watchlist/watchlist.module:158
+msgid "String to replace banned words with"
+msgstr ""
+
+#: watchlist/watchlist.module:163
+msgid ""
+"Enable moderation from the watchlist and banned list for these content types"
+msgstr ""
+
+#: watchlist/watchlist.module:164
+msgid ""
+"Content gets flagged into a pending pile (users can still view item) if a "
+"match is found in the watchlist.  Content gets flagged into hidden pile "
+"(hidden from users) if a match is from from the bannedlist.  Users will only "
+"be validated against banned words."
+msgstr ""
+
+#: watchlist/watchlist.module:181 watchlist/watchlist.module:211
+msgid "comment"
+msgstr ""
+
+#: watchlist/watchlist.module:187 abuse.admin.inc:37
+msgid "users"
+msgstr ""
+
+#: watchlist/watchlist.module:189
+msgid "Validate the username is not part of a bad list of words"
+msgstr ""
+
+#: watchlist/watchlist.module:196
+msgid ""
+"Enable pre-moderation from the watchlist and banned list for these content "
+"types"
+msgstr ""
+
+#: watchlist/watchlist.module:197
+msgid "Content gets flagged regardless of abuse module setting."
+msgstr ""
+
+#: watchlist/watchlist.module:234
+msgid "Please remove all empty line breaks from the %list list"
+msgstr ""
+
+#: watchlist/watchlist.module:251
+msgid "Test out watchlist word settings"
+msgstr ""
+
+#: watchlist/watchlist.module:252
+msgid "Test the validity of the watch word list and banned word list."
+msgstr ""
+
+#: watchlist/watchlist.module:258
+msgid "Test Box"
+msgstr ""
+
+#: watchlist/watchlist.module:262
+msgid "The text you wish to test."
+msgstr ""
+
+#: watchlist/watchlist.module:268 watchlist/watchlist.module:284
+msgid "test"
+msgstr ""
+
+#: watchlist/watchlist.module:354
+msgid "Inappropriate name !name requested."
+msgstr ""
+
+#: watchlist/watchlist.module:471
+msgid "Watchlist"
+msgstr ""
+
+#: watchlist/watchlist.module:501
+msgid "No watched or banned words found."
+msgstr ""
 
 #: abuse.admin.inc:11
 msgid "Reasons"
@@ -30,10 +183,6 @@ msgstr ""
 
 #: abuse.admin.inc:31
 msgid "comments"
-msgstr ""
-
-#: abuse.admin.inc:37 watchlist/watchlist.module:187
-msgid "users"
 msgstr ""
 
 #: abuse.admin.inc:39
@@ -313,124 +462,6 @@ msgstr ""
 msgid "The user @name has been banned."
 msgstr ""
 
-#: abuse.install:30
-msgid "A way to associate a flag for content by a user"
-msgstr ""
-
-#: abuse.install:33
-msgid "ID of the flag"
-msgstr ""
-
-#: abuse.install:39 abuse.install:107 abuse.install:150 abuse.install:196
-msgid "Original content ID"
-msgstr ""
-
-#: abuse.install:45 abuse.install:113 abuse.install:156 abuse.install:202
-msgid "Content Type"
-msgstr ""
-
-#: abuse.install:52
-msgid "ID of user flagging content"
-msgstr ""
-
-#: abuse.install:59 abuse.install:66
-msgid "Name of user"
-msgstr ""
-
-#: abuse.install:73
-msgid "General reason for flagging content"
-msgstr ""
-
-#: abuse.install:80
-msgid "Text from user on what is wrong with content"
-msgstr ""
-
-#: abuse.install:85
-msgid "Check that the flag is valid"
-msgstr ""
-
-#: abuse.install:93 abuse.install:134 abuse.install:224
-msgid "Timestamp"
-msgstr ""
-
-#: abuse.install:104
-msgid ""
-"A list of warnings that have been sent out to users for inappropriate content"
-msgstr ""
-
-#: abuse.install:120 abuse.install:127 abuse.install:209
-msgid "Flagged content user ID"
-msgstr ""
-
-#: abuse.install:147
-msgid "Current status of a particular piece of content"
-msgstr ""
-
-#: abuse.install:163
-msgid "Moderating user content has been assigned to"
-msgstr ""
-
-#: abuse.install:170
-msgid "Last timestamp of when content status was added/changed"
-msgstr ""
-
-#: abuse.install:177
-msgid "Current status of the content"
-msgstr ""
-
-#: abuse.install:193
-msgid "A log of the change to the status of a given content"
-msgstr ""
-
-#: abuse.install:216
-msgid "Status of the content"
-msgstr ""
-
-#: abuse.install:236
-msgid "A customizable reasons (categories) for flagging content on the site"
-msgstr ""
-
-#: abuse.install:239
-msgid "Reason ID"
-msgstr ""
-
-#: abuse.install:245
-msgid "Short sentence of reason for flagging content"
-msgstr ""
-
-#: abuse.install:252
-msgid "A description for admins on what this reason is"
-msgstr ""
-
-#: abuse.install:258
-msgid "Text that will be added to the email body"
-msgstr ""
-
-#: abuse.install:273
-msgid "The user wrote very mean things"
-msgstr ""
-
-#: abuse.install:273 abuse.install:274 abuse.install:275 abuse.install:276
-#: abuse.install:277
-msgid "Please refrain from writing such mean things"
-msgstr ""
-
-#: abuse.install:274
-msgid "The user's wrote very explicit language"
-msgstr ""
-
-#: abuse.install:275
-msgid "The user wrote very derogatory comments"
-msgstr ""
-
-#: abuse.install:276
-msgid "The user wrote about private information"
-msgstr ""
-
-#: abuse.install:277
-msgid "The user wrote about other types of mean things"
-msgstr ""
-
 #: abuse.module:89
 msgid "allow users to report abusive content"
 msgstr ""
@@ -565,153 +596,4 @@ msgstr ""
 
 #: abuse.module:961
 msgid "Invalid user account - content cannot be allowed"
-msgstr ""
-
-#: watchlist/watchlist.module:37
-msgid "Bad words filter"
-msgstr ""
-
-#: watchlist/watchlist.module:39
-msgid "Replaces bad words in the string with a user specified safe text"
-msgstr ""
-
-#: watchlist/watchlist.module:67
-msgid "Watchlist Settings"
-msgstr ""
-
-#: watchlist/watchlist.module:72
-msgid "Do you wish to have @type nodes moderated?"
-msgstr ""
-
-#: watchlist/watchlist.module:73
-msgid ""
-"Moderated content automatically flags any content that may be questionable.  "
-"If content is found to contain any of words (or match regular expressions) "
-"found from the watchlist or banned list, the node is placed into a pending "
-"or hidden pile, respectively.  In the case of the latter, it is hidden to "
-"other users so the moderator can decide what should be done."
-msgstr ""
-
-#: watchlist/watchlist.module:79
-msgid "Do you wish to have @type nodes pre-moderated?"
-msgstr ""
-
-#: watchlist/watchlist.module:80
-msgid ""
-"PRE-Moderated content is automatically hidden on the site and placed into an "
-"appropriate bin depending on how good or bad the content may be.  It is then "
-"up to the moderator to allow or remove the node from being displayed on the "
-"site."
-msgstr ""
-
-#: watchlist/watchlist.module:124
-msgid "Watchlist word settings"
-msgstr ""
-
-#: watchlist/watchlist.module:125
-msgid ""
-"These words fall in a grey area of being good or bad.  Content found with "
-"these words will be flagged into the pending pile (and into a hidden pile if "
-"premoderation is allowed on the content type)"
-msgstr ""
-
-#: watchlist/watchlist.module:131
-msgid "Watch list"
-msgstr ""
-
-#: watchlist/watchlist.module:135
-msgid "The watch list, one per line.  Do not use empty line breaks."
-msgstr ""
-
-#: watchlist/watchlist.module:138
-msgid "Filtered/banned word settings"
-msgstr ""
-
-#: watchlist/watchlist.module:139
-msgid ""
-"These words will enable content to be automatically flagged on the site and, "
-"if allowed back on site, filters the banned words"
-msgstr ""
-
-#: watchlist/watchlist.module:146
-msgid "Filtered/banned word list"
-msgstr ""
-
-#: watchlist/watchlist.module:150
-msgid "The banned word list, one per line.  Do not use empty line breaks."
-msgstr ""
-
-#: watchlist/watchlist.module:153
-msgid "Replacement string"
-msgstr ""
-
-#: watchlist/watchlist.module:158
-msgid "String to replace banned words with"
-msgstr ""
-
-#: watchlist/watchlist.module:163
-msgid ""
-"Enable moderation from the watchlist and banned list for these content types"
-msgstr ""
-
-#: watchlist/watchlist.module:164
-msgid ""
-"Content gets flagged into a pending pile (users can still view item) if a "
-"match is found in the watchlist.  Content gets flagged into hidden pile "
-"(hidden from users) if a match is from from the bannedlist.  Users will only "
-"be validated against banned words."
-msgstr ""
-
-#: watchlist/watchlist.module:181 watchlist/watchlist.module:211
-msgid "comment"
-msgstr ""
-
-#: watchlist/watchlist.module:189
-msgid "Validate the username is not part of a bad list of words"
-msgstr ""
-
-#: watchlist/watchlist.module:196
-msgid ""
-"Enable pre-moderation from the watchlist and banned list for these content "
-"types"
-msgstr ""
-
-#: watchlist/watchlist.module:197
-msgid "Content gets flagged regardless of abuse module setting."
-msgstr ""
-
-#: watchlist/watchlist.module:234
-msgid "Please remove all empty line breaks from the %list list"
-msgstr ""
-
-#: watchlist/watchlist.module:251
-msgid "Test out watchlist word settings"
-msgstr ""
-
-#: watchlist/watchlist.module:252
-msgid "Test the validity of the watch word list and banned word list."
-msgstr ""
-
-#: watchlist/watchlist.module:258
-msgid "Test Box"
-msgstr ""
-
-#: watchlist/watchlist.module:262
-msgid "The text you wish to test."
-msgstr ""
-
-#: watchlist/watchlist.module:268 watchlist/watchlist.module:284
-msgid "test"
-msgstr ""
-
-#: watchlist/watchlist.module:354
-msgid "Inappropriate name !name requested."
-msgstr ""
-
-#: watchlist/watchlist.module:471
-msgid "Watchlist"
-msgstr ""
-
-#: watchlist/watchlist.module:501
-msgid "No watched or banned words found."
 msgstr ""
