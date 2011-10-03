@@ -6,7 +6,10 @@
       print $picture;
     }?>
 
-    <h2 class="title"><a href="<?php print $node_url?>"><?php print $title?></a></h2><br />
+    <?php if ($node->type != 'page') { ?>
+        <h2 class="title"><a href="<?php print $node_url?>"><?php print $title?></a></h2><br />
+    <?php }; ?>
+
     <div class="content clear-block"><?php print $content?></div>
 
     <?php if ($links) { ?>

@@ -4,6 +4,7 @@
    o remove "Submitted by"
    o show tags for all content types
    o show category links only if content is tagged
+   o don't display title for Page content
 
  - template.php
    o output attachments as images, not a tables
