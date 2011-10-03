@@ -8,8 +8,12 @@
 
     <h2 class="title"><a href="<?php print $node_url?>"><?php print $title?></a></h2><br />
     <div class="content clear-block"><?php print $content?></div>
-    <div class="taxonomy">
-        <?php print t('categories:').$terms ?>
-    </div>
+
+    <?php if ($links) { ?>
+        <div class="taxonomy">
+            <?php print t('categories:').$terms ?>
+        </div>
+    <?php }; ?>
+
     <?php if ($links) { ?><div class="links">&raquo; <?php print $links?></div><?php }; ?>
   </div>

@@ -1,8 +1,9 @@
-1.12
+1.12 - CURRENT
  - Imported from OTBNG theme and renamed
  - node.tpl.php
    o remove "Submitted by"
    o show tags for all content types
+   o show category links only if content is tagged
 
  - template.php
    o output attachments as images, not a tables
