@@ -24,7 +24,7 @@
 ********************************************************************************/
 
 /* handle Check code service */
-function mobio_checkcode($servID, $code, $debug=0) {
+function mobio_checkcode($servID, $code) {
     $res_lines = file("http://www.mobio.bg/code/checkcode.php?servID=$servID&code=$code");
 
     $ret = 0;
@@ -32,13 +32,11 @@ function mobio_checkcode($servID, $code, $debug=0) {
         if(strstr("OK", $res_lines[0])) {
             $ret = 1;
         }else{
-            if($debug)
-                drupal_set_message('error', $line);
+            drupal_set_message('error', t($line));
         }
     }else{
-        if($debug)
-            drupal_set_message('error', t("Unable to connect to mobio.bg server"));
-            $ret = 0;
+        drupal_set_message('error', t("Unable to connect to mobio.bg server"));
+        $ret = 1;
     }
 
     return $ret;
