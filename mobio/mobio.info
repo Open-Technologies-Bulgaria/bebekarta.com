@@ -1,0 +1,5 @@
+name = Mobio
+description = Helper functions for Mobio.bg
+version = 0.1
+core = 6.x
+

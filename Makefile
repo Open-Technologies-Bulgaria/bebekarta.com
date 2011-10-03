@@ -25,6 +25,7 @@
 
 bebekarta_ver := $(shell cat bebekarta/bebekarta.info | grep core | tr -s ' ' '=' | cut -f 2 -d=)-$(shell cat bebekarta/bebekarta.info | grep version | tr -s ' ' '=' | cut -f 2 -d=)
 abuse_ver := $(shell cat abuse/abuse.info | grep version | tr -s ' ' '=' | cut -f 2 -d=)
+mobio_ver := $(shell cat mobio/mobio.info | grep core | tr -s ' ' '=' | cut -f 2 -d=)-$(shell cat mobio/mobio.info | grep version | tr -s ' ' '=' | cut -f 2 -d=)
 
 bebekarta-theme:
 	tar -czvf bebekarta-$(bebekarta_ver).tar.gz --exclude .git bebekarta/
@@ -32,6 +33,8 @@ bebekarta-theme:
 abuse-module:
 	tar -czvf abuse-$(abuse_ver).tar.gz --exclude .git abuse
 
+mobio-module:
+	tar -czvf mobio-$(mobio_ver).tar.gz --exclude .git mobio/
 
 clean:
 	rm -f *.tar.gz
@@ -41,5 +44,6 @@ help:
 	@echo "                                                        "
 	@echo " bebekarta-theme - build tarball for BebeKarta theme    "
 	@echo " abuse-module - build tarball for customized Abuse module"
+	@echo " mobio-module - build tarball for Mobio module          "
 	@echo " clean - clean files used to build                      "
 	@echo " help - show this help and exit                         "
