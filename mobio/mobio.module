@@ -31,8 +31,8 @@ function mobio_checkcode($servID, $code) {
     if($res_lines) {
         if(strstr("PAYBG=OK", $res_lines[0])) {
             $ret = 1;
-        }else{
-            drupal_set_message(t($res_lines[0]), 'error');
+        } else{
+//            drupal_set_message(t($res_lines[0]), 'error');
         }
     }else{
         drupal_set_message(t("Unable to connect to mobio.bg server"), 'error');
@@ -126,7 +126,6 @@ EOF;
 
         $message .= <<<EOF
 <form method="get" action="/sms/vip/check">
-<input type="hidden" name="servID" value="17634"/>
 <input type="hidden" name="nid" value="$nid"/>
 SMS код: <input type="text" name="code"/>
 <input type="submit" value="Изпращане"/>
@@ -142,25 +141,36 @@ EOF;
 
 function mobio_vip_check() {
    $nid = $_GET['nid'];
-   $servID = $_GET['servID'];
    $code = $_GET['code'];
+   $services = array(
+      1 => array('servID' => 17634, 'type' => "Бронзова"), // 0.60
+      2 => array('servID' => 17640, 'type' => "Сребърна"), // 1.20
+      3 => array('servID' => 17641, 'type' => "Златна"), // 2.40
+      4 => array('servID' => 17642, 'type' => "Платинена"), // 4.80
+      5 => array('servID' => 17643, 'type' => "Диамантена"), // 6.00
+   );
 
-   if ($nid && is_numeric($nid) && ($node = node_load($nid)) &&
-       $servID && is_numeric($servID) && $code) {
-       if(mobio_checkcode($servID, $code) == 1) {
-           // sms-a e validen. obnovqvame VIP poleto s 1
-           $node->field_vip[0][value] = 1;
-           node_save($node);
+   if ($nid && is_numeric($nid) && ($node = node_load($nid)) && $code) {
+       // check validity for all services
+       foreach($services AS $vip_weight => $service) {
+           if(mobio_checkcode($service['servID'], $code) == 1) {
+               // sms-a e validen. obnovqvame VIP poleto
+               $node->field_vip[0][value] = $vip_weight;
+               node_save($node);
 
-           $message = t("Валиден SMS код.")." ".sprintf(t("Обява %s вече е ВИП!"), $node->title);
-           drupal_set_message($message);
-           $nodepath = drupal_get_path_alias('node/'.$node->nid);
-           drupal_goto($nodepath);
-       }else{
-            drupal_goto('sms/fail');
+               $message = t("Валиден SMS код.")." ".sprintf(t("Обява %s вече е %s!"), $node->title, $service['type']);
+               drupal_set_message($message);
+               $nodepath = drupal_get_path_alias('node/'.$node->nid);
+               drupal_goto($nodepath);
+
+               break;
+           }
        }
+
+       // no valid code found
+       drupal_goto('sms/fail');
    } else {
-       return "ГРЕШКА: Невалиден nid, servID или code";
+       return "ГРЕШКА: Невалиден nid или code";
    }
 }
 
