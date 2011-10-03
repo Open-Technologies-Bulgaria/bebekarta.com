@@ -29,7 +29,7 @@ function mobio_checkcode($servID, $code) {
 
     $ret = 0;
     if($res_lines) {
-        if(strstr("OK", $res_lines[0])) {
+        if(strstr("PAYBG=OK", $res_lines[0])) {
             $ret = 1;
         }else{
             drupal_set_message('error', t($line));
