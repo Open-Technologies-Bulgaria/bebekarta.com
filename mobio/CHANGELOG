@@ -1,2 +1,4 @@
 0.1 - 20111003
  - initial revision
+ - add handling functions inside module not inside pages
+

@@ -42,4 +42,131 @@ function mobio_checkcode($servID, $code) {
     return $ret;
 }
 
+
+/**
+ * Implementation of hook_menu().
+ */
+function mobio_menu() {
+  $items = array();
+
+  $items['sms/vip'] = array(
+    'title' => t('ВИП обява'),
+    'description' => t('ВИП обява'),
+    'page callback' => 'mobio_vip',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['sms/vip/check'] = array(
+    'title' => t('Проверка на SMS код'),
+    'description' => t('Проверка на SMS код'),
+    'page callback' => 'mobio_vip_check',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
+
+  $items['sms/fail'] = array(
+    'title' => t('Грешка при обработка на SMS код'),
+    'description' => t('Грешка при обработка на SMS код'),
+    'page callback' => 'mobio_sms_fail',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+function mobio_vip($nid = 0) {
+  $message = <<<EOF
+Услугата ВИП обява е достъпна за всички потребители. ВИП обявите се показват най-отгоре в списъка с обяви.
+ВИП обявите спират да се показват след като изтече техния срок, също както обикновените обяви.
+Колкото по-скъп е видът на обявата, толкова по-напред ще се показва тя.
+EOF;
+
+  $message .= "<br /><br />";
+  $message .= "Можете да направите своята обява ВИП, ако искате да привлечете внимание към нея и бързо да намерите купувачи.";
+  $message .= "<br /><br /><h4>";
+  $message .= "За да използвате услугата ВИП обява изпратете SMS според показаната информация в таблицата и въведете получения код.";
+  $message .= "</h4><br />";
+
+  $message .= sprintf("<table><tr><th>%s</th><th>%s</th><th>%s</th><th>%s</th></tr>",
+                      "Вид на обявата", "SMS текст", "Номер", "Цена в лева с ДДС");
+  $message .= sprintf("<tr><th>%s</th><td>-</td><td>-</td><td>%s</td></tr>",
+                      "Обикновена", "безплатно");
+
+  $message .= sprintf("<tr><th>%s</th><td><strong>bebevip</strong></td><td>%s</td><td>%s</td></tr>",
+                      "Бронзовa", "1095", "0.60");
+
+  $message .= sprintf("<tr><th>%s</th><td><strong>bebevip</strong></td><td>%s</td><td>%s</td></tr>",
+                      "Сребърна", "1093", "1.20");
+
+  $message .= sprintf("<tr><th>%s</th><td><strong>bebevip</strong></td><td>%s</td><td>%s</td></tr>",
+                      "Златна", "1092", "2.40");
+
+  $message .= sprintf("<tr><th>%s</th><td><strong>bebevip</strong></td><td>%s</td><td>%s</td></tr>",
+                      "Платинена", "1094", "4.80");
+
+  $message .= sprintf("<tr><th>%s</th><td><strong>bebevip</strong></td><td>%s</td><td>%s</td></tr>",
+                      "Диамантена", "1096", "6.00");
+
+  $message .= "</table><br /><br />";
+
+  $nid = $_GET['nid'];
+
+  // izbrali sme obqva
+  if ($nid && is_numeric($nid) && ($node = node_load($nid))) {
+     $nodelink = '<a href="/'.drupal_get_path_alias("node/".$node->nid).'">'.$node->title.'</a>';
+
+     if ($node->field_vip[0][value] > 0) {
+        $message .= '<h3>ВНИМАНИЕ: '.sprintf(t("Обява %s вече е ВИП!"), $nodelink).' Моля НЕ изпращайте SMS!</h3>';
+     } else {
+        $message .= t("Направи ВИП: ");
+        $message .= $nodelink;
+
+        $message .= <<<EOF
+<form method="get" action="/sms/vip/check">
+<input type="hidden" name="servID" value="17634"/>
+<input type="hidden" name="nid" value="$nid"/>
+SMS код: <input type="text" name="code"/>
+<input type="submit" value="Изпращане"/>
+</form>
+EOF;
+     }
+  } else { // nqma izbrana obiava
+     $message .= "<h3>ВНИМАНИЕ: Не е избрана валидна обява. Моля НЕ изпращайте SMS, ако виждате това съобщение!</h3>";
+  }
+
+  return $message;
+}
+
+function mobio_vip_check() {
+   $nid = $_GET['nid'];
+   $servID = $_GET['servID'];
+   $code = $_GET['code'];
+
+   if ($nid && is_numeric($nid) && ($node = node_load($nid)) &&
+       $servID && is_numeric($servID) && $code) {
+       if(mobio_checkcode($servID, $code) == 1) {
+           // sms-a e validen. obnovqvame VIP poleto s 1
+           $node->field_vip[0][value] = 1;
+           node_save($node);
+
+           $message = t("Валиден SMS код.")." ".sprintf(t("Обява %s вече е ВИП!"), $node->title);
+           drupal_set_message($message);
+           $nodepath = drupal_get_path_alias('node/'.$node->nid);
+           drupal_goto($nodepath);
+       }else{
+            drupal_goto('sms/fail');
+       }
+   } else {
+       return "ГРЕШКА: Невалиден nid, servID или code";
+   }
+}
+
+
+function mobio_sms_fail() {
+   return "<h3>Възникна грешка при обработката на вашия SMS код! Моля опитайте отново.</h3>";
+}
+
 ?>
