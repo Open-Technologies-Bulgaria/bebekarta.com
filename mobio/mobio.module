@@ -74,10 +74,26 @@ function mobio_menu() {
     'type' => MENU_CALLBACK,
   );
 
+  $items['sms/srok'] = array(
+    'title' => t('Удължаване на срок'),
+    'description' => t('Удължаване на срок'),
+    'page callback' => 'mobio_srok',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['sms/srok/check'] = array(
+    'title' => t('Проверка на SMS код'),
+    'description' => t('Проверка на SMS код'),
+    'page callback' => 'mobio_srok_check',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
   return $items;
 }
 
-function mobio_vip($nid = 0) {
+function mobio_vip() {
   $message = <<<EOF
 Услугата ВИП обява е достъпна за всички потребители. ВИП обявите се показват най-отгоре в списъка с обяви.
 ВИП обявите спират да се показват след като изтече техния срок, също както обикновените обяви.
@@ -177,6 +193,135 @@ function mobio_vip_check() {
 
 function mobio_sms_fail() {
    return "<h3>Възникна грешка при обработката на вашия SMS код! Моля опитайте отново.</h3>";
+}
+
+
+function mobio_srok() {
+  $message = <<<EOF
+Услугата Удължаване на срок е достъпна само за регистрирани потребители.
+Максималния срок на валидност на обявите от тип Подарява е 30 дни след датата на публикуване.
+Максималния срок на валидност на обявите от тип Продава e 7 дни след датата на публикуване.
+Обявите с изтекъл срок спират да се показват на сайта. Можете да удължите този срок, ако изпратите SMS.
+Удълженият срок намалява с всеки изминал ден след изпращането на SMS.
+
+<br /><br />
+<strong>Пример за удължаване с 7 дни:</strong>
+<table>
+  <tr><th>Дата на публикуване</th><th>Изпратен SMS</th><th>Срок за Подарява</th><th>Срок за Продава</th></tr>
+  <tr><td>01 Октомври</td>        <td></td>            <td>30 дни</td>          <td>7 дни</td></tr>
+  <tr><td>02 Октомври</td>        <td>ДА</td>          <td>37 дни</td>          <td>14 дни</td></tr>
+  <tr><td>03 Октомври</td>        <td></td>            <td>36 дни</td>          <td>13 дни</td></tr>
+  <tr><td>04 Октомври</td>        <td></td>            <td>35 дни</td>          <td>12 дни</td></tr>
+  <tr><td>05 Октомври</td>        <td>ДА</td>          <td>41 дни</td>          <td>18 дни</td></tr>
+  <tr><td>25 Октомври</td>        <td></td>            <td>30 дни</td>          <td>7 дни</td></tr>
+</table>
+
+<br /><br />
+<h4>Можете да удължите срока за публикуване на обяви, ако изпратите SMS според показаната информация в таблицата и въведете получения код.</h4>
+EOF;
+  $message .= "<br /><br />";
+
+  $message .= sprintf("<table><tr><th>%s</th><th>%s</th><th>%s</th><th>%s</th></tr>",
+                      "Удължаване", "SMS текст", "Номер", "Цена в лева с ДДС");
+
+  $message .= sprintf("<tr><th>%s</th><td><strong>bebesrok</strong></td><td>%s</td><td>%s</td></tr>",
+                      "7 дни", "1095", "0.60");
+
+  $message .= sprintf("<tr><th>%s</th><td><strong>bebesrok</strong></td><td>%s</td><td>%s</td></tr>",
+                      "30 дни", "1093", "1.20");
+
+  $message .= sprintf("<tr><th>%s</th><td><strong>bebesrok</strong></td><td>%s</td><td>%s</td></tr>",
+                      "90 дни", "1092", "2.40");
+
+  $message .= sprintf("<tr><th>%s</th><td><strong>bebesrok</strong></td><td>%s</td><td>%s</td></tr>",
+                      "180 дни", "1094", "4.80");
+
+  $message .= sprintf("<tr><th>%s</th><td><strong>bebesrok</strong></td><td>%s</td><td>%s</td></tr>",
+                      "365 дни", "1096", "6.00");
+
+  $message .= "</table><br /><br />";
+
+
+  global $user;
+
+  // registriran potrebitel
+  if ($user->uid > 0) {
+    $message .= t("Удължаване на срок за публикуване: ");
+
+    $message .= <<<EOF
+<form method="get" action="/sms/srok/check">
+SMS код: <input type="text" name="code"/>
+<input type="submit" value="Изпращане"/>
+</form>
+EOF;
+  } else { // ne sme lognati
+     $message .= "<h3>ВНИМАНИЕ: Не сте логнат в сайта или е възникнала грешка. Моля НЕ изпращайте SMS, ако виждате това съобщение!</h3>";
+  }
+
+
+  return $message;
+}
+
+function mobio_srok_check() {
+   $code = $_GET['code'];
+   global $user;
+
+   $services = array(
+      array('servID' => 17677, 'days' => 7),   // 0.60
+      array('servID' => 17678, 'days' => 30),  // 1.20
+      array('servID' => 17679, 'days' => 90),  // 2.40
+      array('servID' => 17680, 'days' => 180), // 4.80
+      array('servID' => 17681, 'days' => 365), // 6.00
+   );
+
+   if (($user->uid > 0) && $code) {
+       // check validity for all services
+       foreach($services AS $service) {
+           if(mobio_checkcode($service['servID'], $code) == 1) {
+               // sms-a e validen.
+
+//todo: dobavqme nov zapis ot tip SMS
+
+               $message = t("Валиден SMS код.")." ".sprintf(t("Удължихте вашия период на публикуване с %d дни!"), $service['days']);
+               drupal_set_message($message);
+               drupal_goto('user');
+
+               break;
+           }
+       }
+
+       // no valid code found
+       drupal_goto('sms/fail');
+   } else {
+       return "ГРЕШКА: Не сте логнат в сайта или невалиден код!";
+   }
+}
+
+// adds new SMS code into the database
+function mobio_add_sms($uid, $code) {
+   module_load_include('inc', 'node', 'node.pages');  // new for Drupal 6
+
+   $form_state = array();
+   $nodeTmp = array('type' => 'sms');
+   $form_state['values']['type'] = 'sms';
+   $form_state['values']['status'] = 0;
+   $form_state['values']['title'] = $code;
+   $form_state['values']['uid'] = $uid;
+//   $form_state['values']['name'] = 'someusername';
+   $form_state['values']['op'] = t('Save');  // this seems to be a required value
+
+// CCK field examples for CCK in D6
+// $form_state['values']['field_mydropdown']['value'] = 3;
+
+   // call the function to create the node, node_revisions, and CCK values.
+   drupal_execute('sms_node_form', $form_state, (object) $nodeTmp);
+   $errs = form_get_errors();
+
+   if (count($errs)) {
+      foreach($errs as $error) {
+         drupal_set_message($error, 'error');
+      }
+   }
 }
 
 ?>
