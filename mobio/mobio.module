@@ -280,11 +280,11 @@ function mobio_srok_check() {
            if(mobio_checkcode($service['servID'], $code) == 1) {
                // sms-a e validen.
 
-//todo: dobavqme nov zapis ot tip SMS
+               mobio_add_sms($code, $service['days']);
 
-               $message = t("Валиден SMS код.")." ".sprintf(t("Удължихте вашия период на публикуване с %d дни!"), $service['days']);
+               $message = t("Валиден SMS код.")." ".sprintf(t("Добавихте %d дни към вашия срок за публикуване!"), $service['days']);
                drupal_set_message($message);
-               drupal_goto('user');
+               drupal_goto('user/sms');
 
                break;
            }
@@ -298,30 +298,21 @@ function mobio_srok_check() {
 }
 
 // adds new SMS code into the database
-function mobio_add_sms($uid, $code) {
-   module_load_include('inc', 'node', 'node.pages');  // new for Drupal 6
+function mobio_add_sms($code, $days) {
+   module_load_include('inc', 'node', 'node.pages');
 
-   $form_state = array();
-   $nodeTmp = array('type' => 'sms');
-   $form_state['values']['type'] = 'sms';
-   $form_state['values']['status'] = 0;
-   $form_state['values']['title'] = $code;
-   $form_state['values']['uid'] = $uid;
-//   $form_state['values']['name'] = 'someusername';
-   $form_state['values']['op'] = t('Save');  // this seems to be a required value
+   global $user;
 
-// CCK field examples for CCK in D6
-// $form_state['values']['field_mydropdown']['value'] = 3;
+   $node = new stdClass();
+   $node->type = 'sms';
+   $node->uid = $user->uid;
+   $node->title = $code;
+   $node->field_added_days[0][value] = $days;
+   $node->field_sms_expired[0][value] = 0;
+   $node->status = 0;
 
-   // call the function to create the node, node_revisions, and CCK values.
-   drupal_execute('sms_node_form', $form_state, (object) $nodeTmp);
-   $errs = form_get_errors();
-
-   if (count($errs)) {
-      foreach($errs as $error) {
-         drupal_set_message($error, 'error');
-      }
-   }
+   node_object_prepare($node);
+   node_save($node);
 }
 
 ?>
