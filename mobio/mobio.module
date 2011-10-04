@@ -49,12 +49,26 @@ function mobio_checkcode($servID, $code) {
 function mobio_menu() {
   $items = array();
 
+// има го тук и под node/%node/vip
+// за удобство
   $items['sms/vip'] = array(
     'title' => t('ВИП обява'),
     'description' => t('ВИП обява'),
     'page callback' => 'mobio_vip',
     'access arguments' => array('access content'),
     'type' => MENU_CALLBACK,
+  );
+
+  $items['node/%node/vip'] = array(
+    'title' => t('Направи ВИП'),
+    'description' => t('Направи ВИП'),
+    'page callback' => 'mobio_vip',
+    'page arguments' => array(1),
+    'access arguments' => array('access content'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 0,
+    'file' => 'node.pages.inc',
+    'file path' => drupal_get_path('module', 'node'),
   );
 
   $items['sms/vip/check'] = array(
@@ -74,6 +88,8 @@ function mobio_menu() {
     'type' => MENU_CALLBACK,
   );
 
+// има го и тук и под user/%user/srok за удобство
+// и за да се вижда от админите на Mobio.bg
   $items['sms/srok'] = array(
     'title' => t('Удължаване на срок'),
     'description' => t('Удължаване на срок'),
@@ -90,10 +106,60 @@ function mobio_menu() {
     'type' => MENU_CALLBACK,
   );
 
+  $items['user/%user/srok'] = array(
+    'title' => t('Удължаване на срок'),
+    'description' => t('Удължаване на срок'),
+    'page callback' => 'mobio_srok',
+    'page arguments' => array(1),
+    'access arguments' => array('access content'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 3,
+    'file' => 'user.pages.inc',
+    'file path' => drupal_get_path('module', 'user'),
+  );
+
+  $items['user/%user/sms'] = array(
+    'title' => t('Моите SMS кодове'),
+    'description' => t('Моите SMS кодове'),
+    'page callback' => 'mobio_my_sms_dummy',
+    'page arguments' => array(1),
+    'access callback' => 'mobio_user_is_logged_in',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 4,
+    'file' => 'user.pages.inc',
+    'file path' => drupal_get_path('module', 'user'),
+  );
+
   return $items;
 }
 
-function mobio_vip() {
+
+// show the data from the my_sms_codes view
+function mobio_my_sms_dummy($account) {
+   global $user;
+
+   // handle anonymous
+   if ($user->uid == 0) {
+      drupal_goto('<front>');
+   }
+
+   if ($account->uid != $user->uid) {
+      // redirect to user page if they try to view somebody elses
+      drupal_goto("user/$user->uid/sms");
+   } else {
+      return views_embed_view("my_sms_codes", $display_id = 'block_1');
+   }
+}
+
+
+// return True if user is logged in
+function mobio_user_is_logged_in() {
+   global $user;
+   return $user > 0;
+}
+
+
+function mobio_vip($node = NULL) {
   global $user;
 
   $message = <<<EOF
@@ -160,10 +226,11 @@ EOF;
 
   $message .= "</tr></table><br /><br />";
 
-  $nid = $_GET['nid'];
+  $nid = $_GET['nid']; // set if called as sms/vip?nid=XXX
+  // $node is set if called via node/%node/vip
 
   // izbrali sme obqva
-  if ($nid && is_numeric($nid) && ($node = node_load($nid))) {
+  if ($node || ($nid && is_numeric($nid) && ($node = node_load($nid)))) {
      $nodelink = '<a href="/'.drupal_get_path_alias("node/".$node->nid).'">'.$node->title.'</a>';
 
      if ($node->field_vip[0][value] > 0) {
@@ -231,7 +298,7 @@ function mobio_sms_fail() {
 }
 
 
-function mobio_srok() {
+function mobio_srok($account = NULL) {
   $message = <<<EOF
 Услугата Удължаване на срок е достъпна само за регистрирани потребители.
 Максималния срок на валидност на обявите от тип Подарява е 30 дни след датата на публикуване.
@@ -319,7 +386,7 @@ function mobio_srok_check() {
 
                $message = t("Валиден SMS код.")." ".sprintf(t("Добавихте %d дни към вашия срок за публикуване!"), $service['days']);
                drupal_set_message($message);
-               drupal_goto('user/sms');
+               drupal_goto("user/$user->uid/sms");
 
                break;
            }
