@@ -94,11 +94,21 @@ function mobio_menu() {
 }
 
 function mobio_vip() {
+  global $user;
+
   $message = <<<EOF
 Услугата ВИП обява е достъпна за всички потребители. ВИП обявите се показват най-отгоре в списъка с обяви.
 ВИП обявите спират да се показват след като изтече техния срок, също както обикновените обяви.
 Колкото по-скъп е видът на обявата, толкова по-напред ще се показва тя.
 EOF;
+
+  if ($user->uid > 0) {
+    $message .= <<<EOF
+<br /><br /><strong>БОНУС:</strong><br />
+Вие сте регистриран потребител. Когато въвеждате ВИП кода ще получите бонус - удължаване срока за публикуване на обяви с няколко дни.
+Информация за услугата Удължаване на срок можете да намерите <a href="/sms/srok">тук</a>.
+EOF;
+  }
 
   $message .= "<br /><br />";
   $message .= "Можете да направите своята обява ВИП, ако искате да привлечете внимание към нея и бързо да намерите купувачи.";
@@ -106,27 +116,49 @@ EOF;
   $message .= "За да използвате услугата ВИП обява изпратете SMS според показаната информация в таблицата и въведете получения код.";
   $message .= "</h4><br />";
 
-  $message .= sprintf("<table><tr><th>%s</th><th>%s</th><th>%s</th><th>%s</th></tr>",
+  $message .= sprintf("<table><tr><th>%s</th><th>%s</th><th>%s</th><th>%s</th>",
                       "Вид на обявата", "SMS текст", "Номер", "Цена в лева с ДДС");
-  $message .= sprintf("<tr><th>%s</th><td>-</td><td>-</td><td>%s</td></tr>",
+
+  if ($user->uid > 0)
+     $message .= "<th>Бонус дни</th>";
+
+  $message .= sprintf("</tr><tr><th>%s</th><td>-</td><td>-</td><td>%s</td>",
                       "Обикновена", "безплатно");
 
-  $message .= sprintf("<tr><th>%s</th><td><strong>bebevip</strong></td><td>%s</td><td>%s</td></tr>",
-                      "Бронзовa", "1095", "0.60");
+  if ($user->uid > 0)
+     $message .= "<td>-</td>";
 
-  $message .= sprintf("<tr><th>%s</th><td><strong>bebevip</strong></td><td>%s</td><td>%s</td></tr>",
-                      "Сребърна", "1093", "1.20");
+  $message .= sprintf("</tr><tr><th>%s</th><td><strong>bebevip</strong></td><td>%d</td><td>%s</td>",
+                      "Бронзовa", 1095, "0.60");
 
-  $message .= sprintf("<tr><th>%s</th><td><strong>bebevip</strong></td><td>%s</td><td>%s</td></tr>",
-                      "Златна", "1092", "2.40");
+  if ($user->uid > 0)
+     $message .= "<td>1</td>";
 
-  $message .= sprintf("<tr><th>%s</th><td><strong>bebevip</strong></td><td>%s</td><td>%s</td></tr>",
-                      "Платинена", "1094", "4.80");
+  $message .= sprintf("</tr><tr><th>%s</th><td><strong>bebevip</strong></td><td>%d</td><td>%s</td>",
+                      "Сребърна", 1093, "1.20");
 
-  $message .= sprintf("<tr><th>%s</th><td><strong>bebevip</strong></td><td>%s</td><td>%s</td></tr>",
-                      "Диамантена", "1096", "6.00");
+  if ($user->uid > 0)
+     $message .= "<td>2</td>";
 
-  $message .= "</table><br /><br />";
+  $message .= sprintf("</tr><tr><th>%s</th><td><strong>bebevip</strong></td><td>%d</td><td>%s</td>",
+                      "Златна", 1092, "2.40");
+
+  if ($user->uid > 0)
+     $message .= "<td>3</td>";
+
+  $message .= sprintf("</tr><tr><th>%s</th><td><strong>bebevip</strong></td><td>%d</td><td>%s</td>",
+                      "Платинена", 1094, "4.80");
+
+  if ($user->uid > 0)
+     $message .= "<td>4</td>";
+
+  $message .= sprintf("</tr><tr><th>%s</th><td><strong>bebevip</strong></td><td>%d</td><td>%s</td>",
+                      "Диамантена", 1096, "6.00");
+
+  if ($user->uid > 0)
+     $message .= "<td>5</td>";
+
+  $message .= "</tr></table><br /><br />";
 
   $nid = $_GET['nid'];
 
@@ -173,6 +205,9 @@ function mobio_vip_check() {
                // sms-a e validen. obnovqvame VIP poleto
                $node->field_vip[0][value] = $vip_weight;
                node_save($node);
+
+               // удължаване срока за текущия потребител
+               mobio_add_sms($code, $vip_weight, "ВИП обява");
 
                $message = t("Валиден SMS код.")." ".sprintf(t("Обява %s вече е %s!"), $node->title, $service['type']);
                drupal_set_message($message);
@@ -280,7 +315,7 @@ function mobio_srok_check() {
            if(mobio_checkcode($service['servID'], $code) == 1) {
                // sms-a e validen.
 
-               mobio_add_sms($code, $service['days']);
+               mobio_add_sms($code, $service['days'], "Удължаване на срок");
 
                $message = t("Валиден SMS код.")." ".sprintf(t("Добавихте %d дни към вашия срок за публикуване!"), $service['days']);
                drupal_set_message($message);
@@ -298,21 +333,68 @@ function mobio_srok_check() {
 }
 
 // adds new SMS code into the database
-function mobio_add_sms($code, $days) {
-   module_load_include('inc', 'node', 'node.pages');
-
+function mobio_add_sms($code, $days, $service_name) {
    global $user;
+
+   // do nothing for Anonymous
+   if ($user->uid == 0) {
+      return;
+   }
+
+   // node_object_prepare() is defined here
+   module_load_include('inc', 'node', 'node.pages');
 
    $node = new stdClass();
    $node->type = 'sms';
    $node->uid = $user->uid;
    $node->title = $code;
+   $node->body = $service_name;
    $node->field_added_days[0][value] = $days;
    $node->field_sms_expired[0][value] = 0;
    $node->status = 0;
 
    node_object_prepare($node);
    node_save($node);
+}
+
+
+function mobio_get_expiresat_allowed_values() {
+global $user;
+
+$month_names = array(
+   '',
+   t('January'),
+   t('February'),
+   t('March'),
+   t('April'),
+   t('May'),
+   t('June'),
+   t('July'),
+   t('August'),
+   t('September'),
+   t('October'),
+   t('November'),
+   t('December'),
+);
+
+$today = time();
+
+$result = array();
+
+if ($user->uid == 0) { // Anonymous
+    for ($i = 0; $i <= 60; $i++) {
+        $nextday = $today + ($i * 86400); // 24 * 60 * 60
+        $month = $month_names[date('n', $nextday)];
+
+        $result[] = date('d', $nextday)." ".$month." ".date('Y', $nextday);
+    }
+} else {
+
+}
+
+
+return $result;
+
 }
 
 ?>
