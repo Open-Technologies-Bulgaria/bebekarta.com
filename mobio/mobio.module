@@ -106,6 +106,18 @@ function mobio_menu() {
     'type' => MENU_CALLBACK,
   );
 
+  $items['user/%user/mycontent'] = array(
+    'title' => t('Моите обяви'),
+    'description' => t('Моите обяви'),
+    'page callback' => 'mobio_my_content',
+    'page arguments' => array(1),
+    'access callback' => 'mobio_user_is_logged_in',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 2,
+    'file' => 'user.pages.inc',
+    'file path' => drupal_get_path('module', 'user'),
+  );
+
   $items['user/%user/srok'] = array(
     'title' => t('Удължаване на срок'),
     'description' => t('Удължаване на срок'),
@@ -121,7 +133,7 @@ function mobio_menu() {
   $items['user/%user/sms'] = array(
     'title' => t('Моите SMS кодове'),
     'description' => t('Моите SMS кодове'),
-    'page callback' => 'mobio_my_sms_dummy',
+    'page callback' => 'mobio_my_sms',
     'page arguments' => array(1),
     'access callback' => 'mobio_user_is_logged_in',
     'type' => MENU_LOCAL_TASK,
@@ -135,7 +147,7 @@ function mobio_menu() {
 
 
 // show the data from the my_sms_codes view
-function mobio_my_sms_dummy($account) {
+function mobio_my_sms($account) {
    global $user;
 
    // handle anonymous
@@ -151,6 +163,23 @@ function mobio_my_sms_dummy($account) {
    }
 }
 
+
+// show the data from the my_content view
+function mobio_my_content($account) {
+   global $user;
+
+   // handle anonymous
+   if ($user->uid == 0) {
+      drupal_goto('<front>');
+   }
+
+   if ($account->uid != $user->uid) {
+      // redirect to user page if they try to view somebody elses
+      drupal_goto("user/$user->uid/mycontent");
+   } else {
+      return views_embed_view("my_content", $display_id = 'block_1');
+   }
+}
 
 // return True if user is logged in
 function mobio_user_is_logged_in() {
