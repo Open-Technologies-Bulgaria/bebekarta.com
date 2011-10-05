@@ -521,7 +521,8 @@ function mobio_rules_trigger_set_validto($node) {
         $days = $node->field_expiresat[0][value];
     }
 
-    $validto = strtotime("+$days days", $today);
+    $validto = strtotime("+$days days", $today); // 00:00:00
+    $validto += 86399; // 23:59:59 - valid till end of day
 
     $node->field_validto[0][value] = $validto;
 
