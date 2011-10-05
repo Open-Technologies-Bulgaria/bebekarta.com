@@ -434,7 +434,7 @@ function mobio_get_expiresat_allowed_values() {
                             t('September'), t('October'), t('November'), t('December'),
                        );
 
-    $today = strtotime(date('Y-m-d')); // no HH:MM:SS precision
+    $today = strtotime(date('Y-m-d')); // strip HH:MM:SS precision
     $lastday = 0;
 
     $result = array();
@@ -451,36 +451,53 @@ function mobio_get_expiresat_allowed_values() {
 
     // get all extra days from the DB
     $sql = <<<EOF
-SELECT n.nid
+SELECT
+  n.nid, n.created, cck.field_added_days_value
 FROM {node} AS n, {content_type_sms} AS cck
 WHERE (n.type = "sms") AND (n.uid=%d) AND (n.nid=cck.nid) AND (cck.field_sms_expired_value = 0)
 ORDER BY n.created ASC
 EOF;
 
-    $extra_days = 0;
+    $extra_days = array(); // how many days were added on each day groupped by submission date
+    $days = 0; // this is what needs to be added at the end. in days
     $nodes = db_query($sql, $user->uid);
 
+    // store data about added days and nodes that define them groupped by node creation date
     while( $row = db_fetch_array($nodes)) {
-        $node = node_load($row['nid']);
-        $expire_date = $node->created + $node->field_added_days[0][value] * 86400; // 24 * 60 * 60
-        $expire_date = strtotime(date('Y-m-d', $expire_date)); // strip HH:MM:SS precision
+        $created = strtotime(date('Y-m-d', $row['created'])); // strip HH:MM:SS precision
 
-//todo: check if correct
-        if ($expire_date <= $today) {
-            // if extra days have expired then mark this SMS code as expired
-            $node->field_sms_expired[0][value] = 1;
-            node_save($node);
+        if (array_key_exists($created, $extra_days)) {
+            $extra_days[$created]['days'] += $row['field_added_days_value'];
+            $extra_days[$created]['nids'][] = $row['nid'];
         } else {
-            // still a valid code
-            $d = floor(($expire_date - $today)/(60*60*24)); // in days
-drupal_set_message("Adding $d more days", 'error');
-            $extra_days += $d;
+            $extra_days[$created] = array('days' => $row['field_added_days_value'], 'nids' => array($row['nid']));
         }
     }
 
-    // add the extra days
+
+    // loop through all days and find expired ones
+    foreach($extra_days AS $key => $value) {
+        // this is already without HH:MM:SS precision
+        $expire_date = $key + ($value['days'] * 86400); // 24 * 60 * 60
+
+        if ($expire_date <= $today) { // already without HH:MM:SS precision
+            // mark these SMS codes as expired
+            foreach($value['nids'] AS $nid) {
+               $node = node_load($nid, NULL, TRUE);
+               $node->field_sms_expired[0][value] = 1;
+               node_save($node);
+            }
+        } else { // still a valid code.
+            // the day delta between today and the date when these codes were activated
+            $delta = floor(($today - $key)/86400); // 60 * 60 * 24 in days
+            $days += $value['days'] - $delta; // the total number of days minus the elapsed time
+            // the end DATE should remain the same.
+        }
+    }
+
+    // add the additional days
     $lastday++;
-    for ($i = $lastday; $i < $lastday + $extra_days; $i++) {
+    for ($i = $lastday; $i < $lastday + $days; $i++) {
         $nextday = $today + ($i * 86400); // 24 * 60 * 60
         $month = $month_names[date('n', $nextday)];
         $result[] = date('d', $nextday)." ".$month." ".date('Y', $nextday);
