@@ -211,43 +211,43 @@ EOF;
   $message .= "За да използвате услугата ВИП обява изпратете SMS според показаната информация в таблицата и въведете получения код.";
   $message .= "</h4><br />";
 
-  $message .= sprintf("<table><tr><th>%s</th><th>%s</th><th>%s</th><th>%s</th>",
+  $message .= sprintf("<table><tr><th colspan='2'>%s</th><th>%s</th><th>%s</th><th>%s</th>",
                       "Вид на обявата", "SMS текст", "Номер", "Цена в лева с ДДС");
 
   if ($user->uid > 0)
      $message .= "<th>Бонус дни</th>";
 
-  $message .= sprintf("</tr><tr><th>%s</th><td>-</td><td>-</td><td>%s</td>",
+  $message .= sprintf("</tr><tr><th>&nbsp;</th><th>%s</th><td>-</td><td>-</td><td>%s</td>",
                       "Обикновена", "безплатно");
 
   if ($user->uid > 0)
      $message .= "<td>-</td>";
 
-  $message .= sprintf("</tr><tr><th>%s</th><td><strong>bebevip</strong></td><td>%d</td><td>%s</td>",
+  $message .= sprintf("</tr><tr><th><img src='/sites/all/themes/bebekarta/images/vip_1.png' alt='ВИП' /></th><th>%s</th><td><strong>bebevip</strong></td><td>%d</td><td>%s</td>",
                       "Бронзовa", 1095, "0.60");
 
   if ($user->uid > 0)
      $message .= "<td>1</td>";
 
-  $message .= sprintf("</tr><tr><th>%s</th><td><strong>bebevip</strong></td><td>%d</td><td>%s</td>",
+  $message .= sprintf("</tr><tr><th><img src='/sites/all/themes/bebekarta/images/vip_2.png' alt='ВИП' /></th><th>%s</th><td><strong>bebevip</strong></td><td>%d</td><td>%s</td>",
                       "Сребърна", 1093, "1.20");
 
   if ($user->uid > 0)
      $message .= "<td>2</td>";
 
-  $message .= sprintf("</tr><tr><th>%s</th><td><strong>bebevip</strong></td><td>%d</td><td>%s</td>",
+  $message .= sprintf("</tr><tr><th><img src='/sites/all/themes/bebekarta/images/vip_3.png' alt='ВИП' /></th><th>%s</th><td><strong>bebevip</strong></td><td>%d</td><td>%s</td>",
                       "Златна", 1092, "2.40");
 
   if ($user->uid > 0)
      $message .= "<td>3</td>";
 
-  $message .= sprintf("</tr><tr><th>%s</th><td><strong>bebevip</strong></td><td>%d</td><td>%s</td>",
+  $message .= sprintf("</tr><tr><th><img src='/sites/all/themes/bebekarta/images/vip_4.png' alt='ВИП' /></th><th>%s</th><td><strong>bebevip</strong></td><td>%d</td><td>%s</td>",
                       "Платинена", 1094, "4.80");
 
   if ($user->uid > 0)
      $message .= "<td>4</td>";
 
-  $message .= sprintf("</tr><tr><th>%s</th><td><strong>bebevip</strong></td><td>%d</td><td>%s</td>",
+  $message .= sprintf("</tr><tr><th><img src='/sites/all/themes/bebekarta/images/vip_5.png' alt='ВИП' /></th><th>%s</th><td><strong>bebevip</strong></td><td>%d</td><td>%s</td>",
                       "Диамантена", 1096, "6.00");
 
   if ($user->uid > 0)
