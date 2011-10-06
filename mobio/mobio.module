@@ -558,4 +558,12 @@ function mobio_rules_trigger_set_validto($node) {
     return array('node' => $node);
 }
 
+// expand file attachments field
+function mobio_form_alter(&$form, &$form_state, $form_id) {
+    if (($form_id == 'podariava_node_form') || ($form_id == 'prodava_node_form')) {
+        $form['attachments']['#collapsed'] = FALSE;
+        $form['attachments']['#collapsible'] = FALSE;
+    }
+}
+
 ?>
