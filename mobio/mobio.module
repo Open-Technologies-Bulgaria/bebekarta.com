@@ -563,6 +563,9 @@ function mobio_form_alter(&$form, &$form_state, $form_id) {
     if (($form_id == 'podariava_node_form') || ($form_id == 'prodava_node_form')) {
         $form['attachments']['#collapsed'] = FALSE;
         $form['attachments']['#collapsible'] = FALSE;
+
+//        $form['location']['locations'][0]['locpick']['user_longitude']['#prefix'] = 'DEBUG';
+//        $form['location']['locations'][0]['locpick']['instructions']['#prefix'] = 'DEBUG';
     }
 }
 
