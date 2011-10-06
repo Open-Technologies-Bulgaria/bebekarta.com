@@ -5,6 +5,7 @@
    o show tags for all content types
    o show category links only if content is tagged
    o don't display title for Page content
+   o print node type and vip icons in title
 
  - template.php
    o output attachments as images, not a tables
