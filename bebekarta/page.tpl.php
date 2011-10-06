@@ -6,7 +6,16 @@
       xml:lang="<?php echo $language->language ?>"
       dir="<?php echo $language->dir ?>" id="html-main">
 <head>
-  <title><?php echo $head_title ?></title>
+  <title>
+<?php 
+   if (($node->type == 'podariava') || ($node->type == 'prodava')) {
+      $type = node_get_types('name', $node);
+      echo "$type - ";
+   }
+
+   echo $head_title;
+?>
+  </title>
   <meta name="fb:admins" content="alexx.todorov,1132904190" />
   <?php echo $head ?>
   <?php echo $styles ?>

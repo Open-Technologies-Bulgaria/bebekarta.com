@@ -12,6 +12,7 @@
 
  - page.tpl.php
    o use XHTML Strict DOCTYPE
+   O print node type name in title
 
  - style.css
    o don't force white background on images. this breaks Gmap markers.
