@@ -25,6 +25,4 @@
             <?php print t('categories:').$terms ?>
         </div>
     <?php }; ?>
-
-    <?php if ($links) { ?><div class="links">&raquo; <?php print $links?></div><?php }; ?>
   </div>
