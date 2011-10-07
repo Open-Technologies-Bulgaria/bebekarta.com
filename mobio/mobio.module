@@ -609,5 +609,81 @@ function mobio_default_skype() {
     }
 }
 
+// helper function
+function mobio_show_facebook($arg0, $arg1) {
+    $nid = 0;
+
+    // try to find a file for the current node
+    if ($arg0 == 'node' && is_numeric($arg1)) {
+        $nid = $arg1;
+    }
+    $node = node_load($nid);
+
+    return ($node) && (($node->type == 'prodava') || ($node->type == 'podariava'));
+}
+
+function mobio_show_taxonomy_map_list() {
+// show a list view together with the map view
+    $view_args = drupal_get_normal_path($_GET["q"]);
+    $view_args = str_replace("taxonomy/term/", '', $view_args);
+    $view_args = str_replace("/all", '', $view_args);
+
+    if ($view_args == "map/node" ) {
+        $view_args = "all";
+    }
+
+    $output = views_embed_view("taxonomy_map", $display_id = 'page_2', $view_args);
+    print $output;
+}
+
+function mobio_show_child_terms() {
+  $vid = 1;
+  $allchildren = array();
+  
+  // first level of children
+  $children = taxonomy_get_children(5, $vid);
+
+  foreach($children as $child) {
+    // second level of children
+    $subchildren = taxonomy_get_children($child->tid, $vid);
+
+    foreach($subchildren as $subchild) {
+      $allchildren[] = $subchild;
+    }
+  }
+
+  $output = "<table border='0'>";
+  $output .= "<tr>";
+  $i;
+
+  foreach($allchildren AS $child) {
+    if ($i == 0) {
+       $output .= "<td valign='top' align='left'><ul>";
+    }
+
+    $output .= sprintf("<li><a href='%s'>%s (%s)</a></li>", 
+                        taxonomy_term_path($child), $child->name,
+                        taxonomy_term_count_nodes($child->tid)
+                      );
+    $i++;
+
+    if ($i == 5) {
+      $output .= "</ul>";
+      $output .= "</td>";
+      $i = 0;
+    }
+  }
+
+// check once again for the last element
+  if ($i > 0) {
+      $output .= "</ul>";
+      $output .= "</td>";
+  }
+
+  $output .= "</tr>";
+  $output .= "</table>";
+
+  print $output;
+}
 
 ?>
