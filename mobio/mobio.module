@@ -71,6 +71,15 @@ function mobio_menu() {
     'file path' => drupal_get_path('module', 'node'),
   );
 
+  $items['node/%node/abuse'] = array(
+    'title' => t('Flag as offensive'),
+    'page callback' => 'mobio_abuse_redirect',
+    'page arguments' => array(1),
+    'access arguments' => array('access content'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 1,
+  );
+
   $items['sms/vip/check'] = array(
     'title' => t('Проверка на SMS код'),
     'description' => t('Проверка на SMS код'),
@@ -111,7 +120,7 @@ function mobio_menu() {
     'description' => t('Моите обяви'),
     'page callback' => 'mobio_my_content',
     'page arguments' => array(1),
-    'access callback' => 'mobio_user_is_logged_in',
+    'access callback' => 'user_is_logged_in',
     'type' => MENU_LOCAL_TASK,
     'weight' => 2,
     'file' => 'user.pages.inc',
@@ -135,7 +144,7 @@ function mobio_menu() {
     'description' => t('Моите SMS кодове'),
     'page callback' => 'mobio_my_sms',
     'page arguments' => array(1),
-    'access callback' => 'mobio_user_is_logged_in',
+    'access callback' => 'user_is_logged_in',
     'type' => MENU_LOCAL_TASK,
     'weight' => 4,
     'file' => 'user.pages.inc',
@@ -181,12 +190,12 @@ function mobio_my_content($account) {
    }
 }
 
-// return True if user is logged in
-function mobio_user_is_logged_in() {
-   global $user;
-   return $user > 0;
-}
 
+function mobio_abuse_redirect($node = NULL) {
+   if ($node) {
+      drupal_goto("abuse/report/node/$node->nid");
+   }
+}
 
 function mobio_vip($node = NULL) {
   global $user;
