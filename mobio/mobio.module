@@ -569,4 +569,38 @@ function mobio_form_alter(&$form, &$form_state, $form_id) {
     }
 }
 
+// get default values from user profile
+
+function mobio_default_email() {
+    global $user;
+    if ($user->uid > 0) {
+       return array(0 => array('value' => $user->mail));
+    }
+}
+
+function mobio_default_name() {
+    global $user;
+    if ($user->uid > 0) {
+       profile_load_profile($user);
+       return array(0 => array('value' => $user->profile_realname));
+    }
+}
+
+function mobio_default_phone() {
+    global $user;
+    if ($user->uid > 0) {
+       profile_load_profile($user);
+       return array(0 => array('value' => $user->profile_phone));
+    }
+}
+
+function mobio_default_skype() {
+    global $user;
+    if ($user->uid > 0) {
+       profile_load_profile($user);
+       return array(0 => array('value' => $user->profile_skype));
+    }
+}
+
+
 ?>
