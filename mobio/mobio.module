@@ -31,9 +31,10 @@ function mobio_checkcode($servID, $code) {
     if($res_lines) {
         if(strstr("PAYBG=OK", $res_lines[0])) {
             $ret = 1;
-        } else{
+        } 
+// else {
 //            drupal_set_message(t($res_lines[0]), 'error');
-        }
+//      }
     }else{
         drupal_set_message(t("Unable to connect to mobio.bg server"), 'error');
         $ret = 1;
@@ -120,8 +121,6 @@ function mobio_menu() {
     'access callback' => 'user_is_logged_in',
     'type' => MENU_LOCAL_TASK,
     'weight' => 2,
-    'file' => 'user.pages.inc',
-    'file path' => drupal_get_path('module', 'user'),
   );
 
   $items['user/%user/srok'] = array(
@@ -132,8 +131,6 @@ function mobio_menu() {
     'access arguments' => array('access content'),
     'type' => MENU_LOCAL_TASK,
     'weight' => 3,
-    'file' => 'user.pages.inc',
-    'file path' => drupal_get_path('module', 'user'),
   );
 
   $items['user/%user/sms'] = array(
@@ -144,8 +141,6 @@ function mobio_menu() {
     'access callback' => 'user_is_logged_in',
     'type' => MENU_LOCAL_TASK,
     'weight' => 4,
-    'file' => 'user.pages.inc',
-    'file path' => drupal_get_path('module', 'user'),
   );
 
   return $items;
