@@ -61,14 +61,11 @@ function mobio_menu() {
 
   $items['node/%node/vip'] = array(
     'title' => t('Направи ВИП'),
-    'description' => t('Направи ВИП'),
-    'page callback' => 'mobio_vip',
+    'page callback' => 'mobio_vip_redirect',
     'page arguments' => array(1),
     'access arguments' => array('access content'),
     'type' => MENU_LOCAL_TASK,
     'weight' => 0,
-    'file' => 'node.pages.inc',
-    'file path' => drupal_get_path('module', 'node'),
   );
 
   $items['node/%node/abuse'] = array(
@@ -194,6 +191,12 @@ function mobio_my_content($account) {
 function mobio_abuse_redirect($node = NULL) {
    if ($node) {
       drupal_goto("abuse/report/node/$node->nid");
+   }
+}
+
+function mobio_vip_redirect($node = NULL) {
+   if ($node) {
+      drupal_goto("sms/vip", "nid=$node->nid");
    }
 }
 
