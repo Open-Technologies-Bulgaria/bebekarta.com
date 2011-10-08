@@ -618,11 +618,11 @@ function mobio_default_skype() {
 }
 
 // helper function
-function mobio_show_facebook($arg0, $arg1) {
+function mobio_show_facebook($arg0, $arg1, $arg2) {
     $nid = 0;
 
     // try to find a file for the current node
-    if ($arg0 == 'node' && is_numeric($arg1)) {
+    if ($arg0 == 'node' && is_numeric($arg1) && !$arg2) {
         $nid = $arg1;
     }
     $node = node_load($nid);
