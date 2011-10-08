@@ -250,6 +250,7 @@ function abuse_menu() {
     'access callback' => 'abuse_access',
     'access arguments' => $admin,
     'file' => 'abuse.admin.inc',
+    'type' => MENU_NORMAL_ITEM,
   );
 
   $items['admin/abuse/status/%/%'] = array(
