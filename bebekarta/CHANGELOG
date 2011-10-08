@@ -17,6 +17,8 @@
 
  - style.css
    o don't force white background on images. this breaks Gmap markers.
+   o use white background for body
+   o don't float <li> items in primary menu
 
 1.11.devel
  - node.tpl.php

@@ -1,5 +1,5 @@
 #html-main, .body-main	{
-	background-color: #A0A0A0; 
+	background-color: #FFFFFF;
 	background-image: url("images/dot_bgr.png");
 	padding: 0;
 	margin: 0;
@@ -137,13 +137,13 @@ th {border-top : 1px solid #ccc; border-bottom : 1px solid #ccc;}
 #logo strong{font-weight:normal; color:#000; font-size:0.8em; line-height:normal; display:block;}
 
 /******** Primary menu ************************************************/
-.rws-primary-menu{background-color:#A0A0A0; color:#000; text-align:left; margin-bottom:14px; padding:10px 0;}
+.rws-primary-menu {background-color:#A0A0A0; color:#000; text-align:left; margin-bottom:14px; padding:10px 0;}
 .rws-primary-menu a {color:#000; padding:0 5px 0 5px;}
 .rws-primary-menu .block, .rws-primary-menu .block-menu,
 .rws-primary-menu .content {padding:0; margin:0; border:none; background-color:transparent;}
 .rws-primary-menu h2{display:none;}
 .rws-primary-menu ul, .rws-primary-menu ul.menu, .rws-primary-menu p, .rws-primary-menu div.block  {margin:0; padding:0;}
-.rws-primary-menu li, .rws-primary-menu li.leaf, .rws-primary-menu ul.links li{margin:0; padding:0; list-style:none;float:left;}
+.rws-primary-menu li, .rws-primary-menu li.leaf, .rws-primary-menu ul.links li{margin:0; padding:0; list-style:none;}
 
 /****************** Columns********************************************/
 .column-1{
