@@ -64,7 +64,8 @@ function mobio_menu() {
     'title' => t('Направи ВИП'),
     'page callback' => 'mobio_vip_redirect',
     'page arguments' => array(1),
-    'access arguments' => array('access content'),
+    'access callback' => 'mobio_vip_abuse_access',
+    'access arguments' => array(1, 'access content'),
     'type' => MENU_LOCAL_TASK,
     'weight' => 0,
   );
@@ -73,7 +74,8 @@ function mobio_menu() {
     'title' => t('Flag as offensive'),
     'page callback' => 'mobio_abuse_redirect',
     'page arguments' => array(1),
-    'access arguments' => array('access content'),
+    'access callback' => 'mobio_vip_abuse_access',
+    'access arguments' => array(1, 'access content'),
     'type' => MENU_LOCAL_TASK,
     'weight' => 1,
   );
@@ -154,6 +156,9 @@ function mobio_menu() {
   return $items;
 }
 
+function mobio_vip_abuse_access($node, $perms) {
+    return $node && (($node->type == 'prodava') || ($node->type == 'podariava')) && user_access($perms);
+}
 
 // show the data from the my_sms_codes view
 function mobio_my_sms($account) {
