@@ -636,54 +636,72 @@ function mobio_show_taxonomy_map_list() {
     print $output;
 }
 
+
+// helper compare function used for sorting
+function mobio_term_compare($a, $b) {
+    return strcasecmp($a->name, $b->name);
+}
+
 function mobio_show_child_terms() {
-  $vid = 1;
-  $allchildren = array();
-  
-  // first level of children
-  $children = taxonomy_get_children(5, $vid);
+    $vid = 1;
+    $allchildren = array();
 
-  foreach($children as $child) {
-    // second level of children
-    $subchildren = taxonomy_get_children($child->tid, $vid);
+    // first level of children
+    $children = taxonomy_get_children(5, $vid);
 
-    foreach($subchildren as $subchild) {
-      $allchildren[] = $subchild;
-    }
-  }
+    foreach($children as $child) {
+        // second level of children
+        $subchildren = taxonomy_get_children($child->tid, $vid);
 
-  $output = "<table border='0'>";
-  $output .= "<tr>";
-  $i;
+        // count nodes for subchildren terms
+        foreach($subchildren as $subchild) {
+            $count = taxonomy_term_count_nodes($subchild->tid);
 
-  foreach($allchildren AS $child) {
-    if ($i == 0) {
-       $output .= "<td valign='top' align='left'><ul>";
+            if (array_key_exists($count, $allchildren)) {
+                $allchildren[$count][] = $subchild;
+            } else {
+                $allchildren[$count] = array($subchild);
+            }
+        }
     }
 
-    $output .= sprintf("<li><a href='%s'>%s (%s)</a></li>", 
-                        taxonomy_term_path($child), $child->name,
-                        taxonomy_term_count_nodes($child->tid)
-                      );
-    $i++;
+    // sort by count first
+    krsort($allchildren);
 
-    if ($i == 5) {
-      $output .= "</ul>";
-      $output .= "</td>";
-      $i = 0;
+    $output = "<table border='0'>";
+    $output .= "<tr>";
+    $i = 0;
+    $total = 0;
+
+    foreach($allchildren AS $count => $children) {
+        uasort($children, 'mobio_term_compare');
+        foreach($children AS $child) {
+            if ($i == 0) {
+                $output .= "<td valign='top' align='left'><ul>";
+            }
+
+            $output .= sprintf("<li><a href='%s'>%s (%s)</a></li>",
+                                taxonomy_term_path($child), $child->name, $count
+                              );
+            $i++;
+            $total++;
+
+            if ($i == 5) {
+                $output .= "</ul>";
+                $output .= "</td>";
+                $i = 0;
+            }
+
+            if ($total == 30) {
+                break 2; // exit both foreach loops
+            }
+        }
     }
-  }
 
-// check once again for the last element
-  if ($i > 0) {
-      $output .= "</ul>";
-      $output .= "</td>";
-  }
+    $output .= "</tr>";
+    $output .= "</table>";
 
-  $output .= "</tr>";
-  $output .= "</table>";
-
-  print $output;
+    print $output;
 }
 
 ?>
