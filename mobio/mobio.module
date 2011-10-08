@@ -145,6 +145,15 @@ function mobio_menu() {
     'weight' => 4,
   );
 
+  $items['user/%user/fbconnect/invite'] = array(
+    'title' => t('Покани приятели'),
+    'page callback' => 'drupal_goto',
+    'page arguments' => array('fbconnect/invite/friends'),
+    'access callback' => 'user_is_logged_in',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 5,
+  );
+
   $items['allterms'] = array(
     'title' => t('Всички категории'),
     'page callback' => 'mobio_show_child_terms',
