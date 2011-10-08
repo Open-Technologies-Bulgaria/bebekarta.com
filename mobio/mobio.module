@@ -143,6 +143,14 @@ function mobio_menu() {
     'weight' => 4,
   );
 
+  $items['allterms'] = array(
+    'title' => t('Всички категории'),
+    'page callback' => 'mobio_show_child_terms',
+    'page arguments' => array(False),
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
   return $items;
 }
 
@@ -642,7 +650,7 @@ function mobio_term_compare($a, $b) {
     return strcasecmp($a->name, $b->name);
 }
 
-function mobio_show_child_terms() {
+function mobio_show_child_terms($asBlock = True) {
     $vid = 1;
     $allchildren = array();
 
@@ -668,15 +676,19 @@ function mobio_show_child_terms() {
     // sort by count first
     krsort($allchildren);
 
-    $output = "<table border='0'>";
-    $output .= "<tr>";
+    if ($asBlock) {
+        $output = "<table border='0'><tr>";
+    } else {
+        $output .= "<ul>";
+    }
+
     $i = 0;
     $total = 0;
 
     foreach($allchildren AS $count => $children) {
         uasort($children, 'mobio_term_compare');
         foreach($children AS $child) {
-            if ($i == 0) {
+            if (($i == 0) && $asBlock) {
                 $output .= "<td valign='top' align='left'><ul>";
             }
 
@@ -686,22 +698,31 @@ function mobio_show_child_terms() {
             $i++;
             $total++;
 
-            if ($i == 5) {
-                $output .= "</ul>";
-                $output .= "</td>";
-                $i = 0;
-            }
+            if ($asBlock) {
+                if ($i == 5) {
+                    $output .= "</ul></td>";
+                    $i = 0;
+                }
 
-            if ($total == 30) {
-                break 2; // exit both foreach loops
+                if ($total == 29) {
+                    $output .= "<li><a href='/allterms'>Всички</a></li></ul></td>";
+                    break 2; // exit both foreach loops
+                }
             }
         }
     }
 
-    $output .= "</tr>";
-    $output .= "</table>";
+    if ($asBlock) {
+        $output .= "</tr></table>";
+   } else {
+        $output .= "</ul>";
+   }
 
-    print $output;
+    if ($asBlock) {
+        print $output;
+    } else {
+        return $output;
+    }
 }
 
 ?>
