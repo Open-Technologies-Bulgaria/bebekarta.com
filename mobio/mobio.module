@@ -706,8 +706,9 @@ function mobio_show_child_terms($asBlock = True) {
                 $output .= "<td valign='top' align='left'><ul>";
             }
 
-            $output .= sprintf("<li><a href='%s'>%s (%s)</a></li>",
-                                taxonomy_term_path($child), $child->name, $count
+            $name = str_replace(' ', '&nbsp;', $child->name);
+            $output .= sprintf("<li><a href='%s'>%s&nbsp;(%s)</a></li>",
+                                taxonomy_term_path($child), $name, $count
                               );
             $i++;
             $total++;
