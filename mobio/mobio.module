@@ -300,8 +300,8 @@ EOF;
         $message .= <<<EOF
 <form method="get" action="/sms/vip/check">
 <input type="hidden" name="nid" value="$node->nid"/>
-SMS код: <input type="text" name="code"/>
-<input type="submit" value="Изпращане"/>
+SMS код: <input type="text" name="code" class="form-text" />
+<input type="submit" value="Изпращане" class="form-submit" />
 </form>
 EOF;
      }
@@ -414,8 +414,8 @@ EOF;
 
     $message .= <<<EOF
 <form method="get" action="/sms/srok/check">
-SMS код: <input type="text" name="code"/>
-<input type="submit" value="Изпращане"/>
+SMS код: <input type="text" name="code" class="form-text"/>
+<input type="submit" value="Изпращане" class="form-submit"/>
 </form>
 EOF;
   } else { // ne sme lognati
