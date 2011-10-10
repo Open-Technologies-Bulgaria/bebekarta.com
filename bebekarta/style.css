@@ -5,7 +5,7 @@
 	margin: 0;
 	margin-bottom: 5px;
 	width: 100%;
-        font-family: "Liberation Sans", Tahoma, Arial, Helvetica, sans-serif;
+        font-family: "PT Sans", "Liberation Sans", sans-serif, Tahoma, Arial, Helvetica;
 	font-size: 0.9em;
 	color: #162d50;
 }
@@ -141,8 +141,8 @@ table th {border-top: solid 1px #9bb8e4; border-bottom: solid 1px #9bb8e4;}
   background-image: url("images/primary_gradient.png");
   background-repeat: repeat-x;
   background-position: top left;
-  height: 90px;
-  padding:10px 0 0 0;
+  height: 97px;
+  padding:3px 0 0 0;
   color:#162d50;
   text-align: left;
   margin-bottom: 14px;

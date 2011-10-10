@@ -7,6 +7,7 @@
       xml:lang="<?php echo $language->language ?>"
       dir="<?php echo $language->dir ?>" id="html-main">
 <head>
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css" />
   <title>
 <?php 
    if (($node->type == 'podariava') || ($node->type == 'prodava')) {
