@@ -7,7 +7,7 @@
 	width: 100%;
         font-family: "Liberation Sans", Tahoma, Arial, Helvetica, sans-serif;
 	font-size: 0.9em;
-	color: #000;
+	color: #162d50;
 }
 
 
@@ -53,13 +53,13 @@ p
 /** headers **/
 h1, h2, h3, h4, h5, h6 {line-height:normal;}
 
-h1, h1.title {font-size:1.7em; font-size:24px; margin-bottom:2px; font-weight:normal; color: #000; background-color: transparent;}
+h1, h1.title {font-size:1.7em; font-size:24px; margin-bottom:2px; font-weight:normal; color: #162d50; background-color: transparent;}
 
 .views-field-title .field-content, h2{
 line-height:normal;
 font-size:1.9em;
 font-weight:normal;
-color:#000;
+color:#162d50;
 padding:0;
 margin:0.2em 0 0.2em 0;
 }
@@ -75,7 +75,7 @@ margin: 0;
 .sticky h2, .sticky h2 a{color:#343434 !important; font-weight:bold;}
 
 .block .title {color: #fff; background-color: #a0bce5;}
-.node .title {color: #000; background-color: transparent;}
+.node .title {color: #162d50; background-color: transparent;}
 
 
 h3{margin-bottom:0; font-size:1.3em;}
@@ -127,14 +127,14 @@ th {border-top : 1px solid #9bb8e4; border-bottom : 1px solid #9bb8e4;}
 
 #logo-picture img{display:block;}
 #logo-picture{float:left; padding-right:15px; }
-#logo{float:left; padding:8px 50px;  color:#000; border-right:3px solid #fff;}
+#logo{float:left; padding:8px 50px;  color:#162d50; border-right:3px solid #fff;}
 #logo h1{font-size:38px; padding:0 0 2px 0; margin:0; line-height:100%;}
 #logo h1.logo-picture-true{text-align:left;  display:inline; height:100%;}
 #logo strong.logo-picture-true{text-align:left; }
 #logo h1.logo-picture-true-slogan-false{line-height:150%; display:inline;}
 
 
-#logo strong{font-weight:normal; color:#000; font-size:0.8em; line-height:normal; display:block;}
+#logo strong{font-weight:normal; color:#162d50; font-size:0.8em; line-height:normal; display:block;}
 
 /******** Primary menu ************************************************/
 .rws-primary-menu {
@@ -144,11 +144,11 @@ th {border-top : 1px solid #9bb8e4; border-bottom : 1px solid #9bb8e4;}
   background-position: top left;
   height: 90px;
   padding:10px 0 0 0;
-  color:#000;
+  color:#162d50;
   text-align: left;
   margin-bottom: 14px;
 }
-.rws-primary-menu a {color:#000; padding:0 5px 0 5px;}
+.rws-primary-menu a {color:#162d50; padding:0 5px 0 5px;}
 .rws-primary-menu a:hover {color:#fff;}
 .rws-primary-menu .block, .rws-primary-menu .block-menu, .rws-primary-menu .content {padding:0; margin:0; border:none;}
 .rws-primary-menu h2{display:none;}
@@ -299,12 +299,10 @@ padding-top:10px;
 #block-bottom .column-2-blocks-left, #block-bottom .column-2-blocks-right{border-top:none; padding-top:0;}
 
 /****** FOOTER *************************************************/
-#footer{clear:both; font-size:0.84em; background-color:#4D4D4D; color: #FFF; padding: 5px 0 5px 0; text-align: center;}
-
+#footer{border-top:1px solid #4d4d4d; clear:both; font-size:0.84em; background-color:#f4d7d7; color: #3771c8; padding: 5px 0 5px 0; text-align: center;}
 #footer h2 {display:none;}
-#footer a {color: #fff;}
+#footer a {color: #3771c8;}
 #footer p, #footer div, #footer div.content, #footer div.block {padding:0; margin: 0;}
-#footer img {margin: 2px 2px 0 2px; background-color: #4D4D4D;} /*bgcolor for IE png bug*/
 
 
 /*** Comments ***/
@@ -422,7 +420,7 @@ margin-top:25px;
 
 
 
-.block-region{color:#000; font-weight:bold; padding-left:10px;}
+.block-region{color:#162d50; font-weight:bold; padding-left:10px;}
 
 
 
@@ -474,4 +472,23 @@ div.admin-panel h3 a:visited{
     display: inline;
 }
 
-.block-google_cse h2 {display:none;}
+/* form elements */
+.form-text, .form-file {border: solid 1px #526e96; background-color: #d3e0f3;}
+.form-textarea, .form-select, fieldset {border: solid 1px #526e96; color: #162d50;}
+.resizable-textarea .grippie,
+.hierarchical-select-wrapper .hierarchical-select .selects .grippie {border: solid 1px #526e96; background-color: #526e96; }
+.form-submit {border: solid 1px #87aade; background-color: #f4d7d7; color: #3771c8;}
+
+.hierarchical-select-wrapper .dropbox-title {color: #162d50;}
+.hierarchical-select-wrapper .dropbox table {color: #162d50; border: 1px solid #162d50;}
+tr.dropbox-entry.even, tr.dropbox-entry.odd, tr.dropbox-entry.last {border-bottom: 1px solid #162d50;}
+tr.dropbox-entry.first {border-top: 1px solid #162d50;}
+td.dropbox-remove *, td.dropbox-remove a:link, td.dropbox-remove a:visited {color: #3771c8;}
+
+
+/* google elements */
+#google-cse-searchbox-form .form-text,
+#google-cse-results-searchbox-form .form-text {border: solid 1px #87aade;}
+
+#google-cse-searchbox-form .form-submit,
+#google-cse-results-searchbox-form .form-submit {border: solid 1px #87aade; background-color: #87aade; color: #fff;}
