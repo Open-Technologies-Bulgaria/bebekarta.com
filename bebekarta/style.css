@@ -494,7 +494,9 @@ td.dropbox-remove *, td.dropbox-remove a:link, td.dropbox-remove a:visited {colo
 #google-cse-results-searchbox-form .form-submit {border: solid 1px #87aade; background-color: #87aade; color: #fff;}
 
 /* page tabs  */
-ul.primary {border-bottom: 1px solid #9bb8e4;}
+ul.primary, ul.secondary {border-bottom: 1px solid #9bb8e4;}
+ul.secondary li, ul.secondary a.active { border-color: #9bb8e4;}
+ul.secondary li a {color: #162d50;}
 ul.primary li a {background-color: #d3e0f3; border-color: #9bb8e4; color: #162d50;}
 ul.primary li.active a {
   background-color: #fff;
@@ -527,3 +529,9 @@ tr.drag-previous {
 td.active {
   background-color: #ddd;
 }
+
+/* User profile screen */
+.profile h3 {border-bottom: solid 1px #9bb8e4;}
+
+/* when sorting by columns  */
+td.active {background-color: #87aade;}
