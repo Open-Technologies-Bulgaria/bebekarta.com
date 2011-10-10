@@ -18,7 +18,7 @@ text-align:center;
 }
 
 a {
-  color:#4E9FDD;
+  color:#3771c8;
   text-decoration: none;
 }
 
@@ -105,7 +105,7 @@ th {border-top : 1px solid #9bb8e4; border-bottom : 1px solid #9bb8e4;}
 /*////////////////////////////CUSTOM BODY STYLES/////////////////////////////////*/
 
 
-.top-menu {padding : 2px 0 0 0; text-align:left;}
+.top-menu {padding : 2px 0 0 0; text-align:left; background-color: #f4d7d7; color: #3771c8;}
 .top-left {float:left; padding: 0; display: inline;}
 .top-left h2 {display:none;}
 .top-left div, .top-left p {padding:0; margin:0;}
@@ -123,7 +123,7 @@ th {border-top : 1px solid #9bb8e4; border-bottom : 1px solid #9bb8e4;}
 .bottom {display:block; clear:both; padding: 0;}
 .bottom div, .bottom p {padding:0; margin:0;}
 
-#logo-container{border-top:1px solid #A0A0A0; padding-top: 7px; margin: 0 0 3px 0; }
+#logo-container{border-top:1px solid #4d4d4d; padding-top: 7px; margin: 0 0 3px 0; }
 
 #logo-picture img{display:block;}
 #logo-picture{float:left; padding-right:15px; }
@@ -137,7 +137,7 @@ th {border-top : 1px solid #9bb8e4; border-bottom : 1px solid #9bb8e4;}
 #logo strong{font-weight:normal; color:#000; font-size:0.8em; line-height:normal; display:block;}
 
 /******** Primary menu ************************************************/
-.rws-primary-menu {background-color:#A0A0A0; color:#000; text-align:left; margin-bottom:14px; padding:10px 0;}
+.rws-primary-menu {background-color:#4d4d4d; color:#000; text-align:left; margin-bottom:14px; padding:10px 0;}
 .rws-primary-menu a {color:#000; padding:0 5px 0 5px;}
 .rws-primary-menu .block, .rws-primary-menu .block-menu,
 .rws-primary-menu .content {padding:0; margin:0; border:none; background-color:transparent;}
@@ -156,9 +156,9 @@ overflow:hidden;
 margin-bottom:30px;
 }
 
-.column-1 .block {margin: 0;}
+.column-1 .block {margin: 0; padding:0;}
 
-.column-1 .content {padding: 0px 10px 0px 10px;}
+.column-1 .content {padding: 0px 10px 0px 10px; margin-top:10px;}
 
 .column-2{
 width:555px;
@@ -465,21 +465,3 @@ div.admin-panel h3 a:visited{
 }
 
 .block-google_cse h2 {display:none;}
-
-.rsslist {list-style-image: url("images/rss_10x10.png");list-style-type: disc;}
-
-code{
-  background-color: #f5f5f5;
-  border: 1px dashed #9bb8e4;
-  border-left: 3px solid #9bb8e4;
-  display: block;
-  overflow: auto;
-  padding: 5px;
-  padding-top: 0px;
-  white-space: pre;
-}
-
-code br {display:none}
-
-/* titles of 3rd level menu which are links  */
-.block-menu_block h2.title a {color: #fff;}
