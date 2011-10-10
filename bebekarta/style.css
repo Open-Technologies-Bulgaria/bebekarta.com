@@ -68,13 +68,13 @@ margin:0.2em 0 0.2em 0;
 .block h2, .block  h2.title{
 font-size:1.5em;
 padding:5px 10px;
-margin: 0 0 0.5em 0;
+margin: 0;
 }
 
 
 .sticky h2, .sticky h2 a{color:#343434 !important; font-weight:bold;}
 
-.title {color: #fff; background-color: #A0A0A0;}
+.block .title {color: #fff; background-color: #a0bce5;}
 .node .title {color: #000; background-color: transparent;}
 
 
@@ -98,7 +98,7 @@ table {width:100%;}
 table td{padding:2px 5px;}
 /* Use border for table headers only  */
 tbody {border: none;}
-th {border-top : 1px solid #ccc; border-bottom : 1px solid #ccc;}
+th {border-top : 1px solid #9bb8e4; border-bottom : 1px solid #9bb8e4;}
 
 .content li{margin-bottom:0.6em;}
 .content form li{margin-bottom:0;}
@@ -148,14 +148,17 @@ th {border-top : 1px solid #ccc; border-bottom : 1px solid #ccc;}
 /****************** Columns********************************************/
 .column-1{
 width:200px;
-padding:0px 10px 10px 0px;
+padding: 0;
 float:left;
-border-right:1px solid #ccc;
+border:1px solid #9bb8e4;
 text-align:left;
 overflow:hidden;
 margin-bottom:30px;
-border-right:1px solid #ccc;
 }
+
+.column-1 .block {margin: 0;}
+
+.column-1 .content {padding: 0px 10px 0px 10px;}
 
 .column-2{
 width:555px;
@@ -177,7 +180,7 @@ margin-bottom:30px;
 width:200px;
 padding:0px 0px 10px 10px;
 float:left;
-border-left:1px solid #ccc;
+border:1px solid #9bb8e4;
 margin-left:-1px;
 text-align:left;
 overflow:hidden;
@@ -204,15 +207,10 @@ padding: 0 0 10px 0;
 }
 
 /** expanded **/
-ul.menu li ul.menu{padding-left:10px; margin-top:3px;  font-size:0.8em; border-left:4px solid #ccc; line-height:normal; }
+ul.menu li ul.menu{padding-left:10px; margin-top:3px;  font-size:0.8em; border-left:4px solid #9bb8e4; line-height:normal; }
 ul.menu li ul.menu li.leaf, ul.menu  li ul.menu li.collapsed {padding: 0 0 0.5em 0;}
 
 ul.menu .active{font-weight:bold;}
-
-.column-1 .block{
-border-bottom: none;
-margin-bottom:15px;
-}
 
 
 /*************** LOGIN FORM ******************************************************/
@@ -222,7 +220,7 @@ margin-bottom:15px;
 
 /******** COLUMN 2 NODES *********************************************************/
 .sticky{
-border:1px solid #ccc;
+border:1px solid #9bb8e4;
 background-color:#fff;
 padding-top:35px !important ;
 }
@@ -254,7 +252,7 @@ margin-bottom:5px;
 
 
 .column-2-blocks-left{
-border:1px solid #ccc;
+border:1px solid #9bb8e4;
 border-left:none;
 border-bottom:none;
 overflow:hidden;
@@ -263,7 +261,7 @@ padding-top:10px;
 }
 
 .column-2-blocks-right{
-border:1px solid #ccc;
+border:1px solid #9bb8e4;
 border-right:none;
 border-bottom:none;
 overflow:hidden;
@@ -274,20 +272,20 @@ padding-top:10px;
 
 .no-left-block{margin-left:251px;}
 
-.content_before_blocks{clear:both; padding-top:10px; border-bottom:1px solid #ccc;}
-.content_after_blocks{clear:both; padding-top:10px; border-top:1px solid #ccc; }
+.content_before_blocks{clear:both; padding-top:10px; border-bottom:1px solid #9bb8e4;}
+.content_after_blocks{clear:both; padding-top:10px; border-top:1px solid #9bb8e4; }
 
 .main-content-block{padding-bottom:25px;}
 .main-content-block .block{margin:18px 0 2px 0;}
 
 
-#block-top{margin-top:0; border-bottom:1px solid #ccc; margin-bottom:10px;}
+#block-top{margin-top:0; border-bottom:1px solid #9bb8e4; margin-bottom:10px;}
 #block-top .column-2-blocks-left, #block-top .column-2-blocks-right{border-top:none; padding-top:0;}
 #block-top h2{background-color:#cc0000;}
 
-#content-top{border-bottom:1px solid #ccc; margin-bottom:8px;}
+#content-top{border-bottom:1px solid #9bb8e4; margin-bottom:8px;}
 
-#block-bottom{border-top:1px solid #ccc;}
+#block-bottom{border-top:1px solid #9bb8e4;}
 #block-bottom .column-2-blocks-left, #block-bottom .column-2-blocks-right{border-top:none; padding-top:0;}
 
 /****** FOOTER *************************************************/
@@ -300,7 +298,7 @@ padding-top:10px;
 
 
 /*** Comments ***/
-.comment{border-left: 1px solid #ccc;  border-bottom: 1px solid #ccc; padding:10px 0 6px 13px; margin:0 0px 0px 0;}
+.comment{border-left: 1px solid #9bb8e4;  border-bottom: 1px solid #9bb8e4; padding:10px 0 6px 13px; margin:0 0px 0px 0;}
 
 .comment .picture img {float:left; margin:0  10px 3px 0; border:1px solid #dadada; padding:1px;}
 
@@ -310,7 +308,7 @@ padding-top:10px;
 .comment-date {margin-bottom:6px; }
 .this-link{color:#aab7b7;font-size:11px;} .this-link a{color:#aab7b7;}
 .this-link a:visited{color:#aab7b7;}
-.comment .new { background:#ccc; color:#fff; padding:1px 4px 1px 4px;}
+.comment .new { background:#9bb8e4; color:#fff; padding:1px 4px 1px 4px;}
 .comment .new a{color:#fff; text-decoration:none; } .comment .new a:hover{color:#fff; }
 .comment p{padding-bottom:6px;}
 
@@ -472,8 +470,8 @@ div.admin-panel h3 a:visited{
 
 code{
   background-color: #f5f5f5;
-  border: 1px dashed #CCC;
-  border-left: 3px solid #CCC;
+  border: 1px dashed #9bb8e4;
+  border-left: 3px solid #9bb8e4;
   display: block;
   overflow: auto;
   padding: 5px;
