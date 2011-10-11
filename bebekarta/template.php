@@ -96,7 +96,7 @@ function phptemplate_upload_attachments($files) {
     if ($file->list && empty($file->remove)) {
       $href = file_create_url($file->filepath);
       $text = $file->description ? $file->description : $file->filename;
-      $output .= sprintf('<a href="%s"><img src="%s" alt="%s" width="570"/></a><br />', $href, $href, $text);
+      $output .= sprintf('<img src="%s" alt="%s" /><br /><br />', $href, $text);
     }
   }
 
