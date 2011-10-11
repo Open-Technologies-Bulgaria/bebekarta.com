@@ -1,5 +1,5 @@
 name = Mobio
-description = Helper functions for Mobio.bg
-version = 0.1
+description = Helper functions for Mobio.bg and BebeKarta.com
+version = 0.2
 core = 6.x
 

@@ -2,7 +2,7 @@ name = BebeKarta
 description = <strong>Important Note:</strong> The right column is disabled by default in admin section, as sometimes the content of admin section is wider than central column, and the content is cut. You can turn on/off right(or left) column for admin section in theme configuration.
 
 core = 6.x
-version = 1.12
+version = 1.13
 
 engine = phptemplate
 

@@ -1,3 +1,7 @@
+0.2 - 20111011
+ - first production release
+ - major functionality is implemented
+
 0.1 - 20111003
  - initial revision
  - add handling functions inside module not inside pages
