@@ -589,6 +589,10 @@ function mobio_rules_trigger_set_validto($node) {
 
 // expand file attachments field
 function mobio_form_alter(&$form, &$form_state, $form_id) {
+    if ($form_id == 'prodava_node_form') {
+        $form["field_expiresat"]['#suffix'] = "<a href='/sms/srok'>Удължаване на срока</a>";
+    }
+
     if (($form_id == 'podariava_node_form') || ($form_id == 'prodava_node_form')) {
         $form['attachments']['#collapsed'] = FALSE;
         $form['attachments']['#collapsible'] = FALSE;
