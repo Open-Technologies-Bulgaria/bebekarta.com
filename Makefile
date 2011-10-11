@@ -27,6 +27,8 @@ bebekarta_ver := $(shell cat bebekarta/bebekarta.info | grep core | tr -s ' ' '=
 abuse_ver := $(shell cat abuse/abuse.info | grep version | tr -s ' ' '=' | cut -f 2 -d=)
 mobio_ver := $(shell cat mobio/mobio.info | grep core | tr -s ' ' '=' | cut -f 2 -d=)-$(shell cat mobio/mobio.info | grep version | tr -s ' ' '=' | cut -f 2 -d=)
 
+all: bebekarta-theme mobio-module abuse-module
+
 bebekarta-theme:
 	tar -czvf bebekarta-$(bebekarta_ver).tar.gz --exclude .git bebekarta/
 
@@ -42,6 +44,7 @@ clean:
 help:
 	@echo "Usage: make <target>                                    "
 	@echo "                                                        "
+	@echo " all - build all tarballs                               "
 	@echo " bebekarta-theme - build tarball for BebeKarta theme    "
 	@echo " abuse-module - build tarball for customized Abuse module"
 	@echo " mobio-module - build tarball for Mobio module          "
