@@ -21,7 +21,7 @@ function cckformsettings_form_alter(&$form, $form_state, $form_id) {
 			
 			drupal_add_js(drupal_get_path('module', 'cckformsettings') .'/cckformsettings.js');
 			$text_processing = $form['field']['text_processing']['#default_value'];
-			if($text_processing = 1) {
+			if($text_processing == 1) {
 				$css_class .= 'cckformsettings-show';
 			}
 			else {
