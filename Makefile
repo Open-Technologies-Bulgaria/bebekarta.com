@@ -26,8 +26,9 @@
 bebekarta_ver := $(shell cat bebekarta/bebekarta.info | grep core | tr -s ' ' '=' | cut -f 2 -d=)-$(shell cat bebekarta/bebekarta.info | grep version | tr -s ' ' '=' | cut -f 2 -d=)
 abuse_ver := $(shell cat abuse/abuse.info | grep version | tr -s ' ' '=' | cut -f 2 -d=)
 mobio_ver := $(shell cat mobio/mobio.info | grep core | tr -s ' ' '=' | cut -f 2 -d=)-$(shell cat mobio/mobio.info | grep version | tr -s ' ' '=' | cut -f 2 -d=)
+nodeformsettings_ver := $(shell cat nodeformsettings/nodeformsettings.info | grep version | tr -s ' ' '=' | cut -f 2 -d=)
 
-all: bebekarta-theme mobio-module abuse-module
+all: bebekarta-theme mobio-module abuse-module nodeformsettings-module
 
 bebekarta-theme:
 	tar -czvf bebekarta-$(bebekarta_ver).tar.gz --exclude .git bebekarta/
@@ -37,6 +38,9 @@ abuse-module:
 
 mobio-module:
 	tar -czvf mobio-$(mobio_ver).tar.gz --exclude .git mobio/
+
+nodeformsettings-module:
+	tar -czvf nodeformsettings-$(nodeformsettings_ver).tar.gz --exclude .git nodeformsettings
 
 clean:
 	rm -f *.tar.gz
@@ -48,5 +52,6 @@ help:
 	@echo " bebekarta-theme - build tarball for BebeKarta theme    "
 	@echo " abuse-module - build tarball for customized Abuse module"
 	@echo " mobio-module - build tarball for Mobio module          "
+	@echo " nodeformsettings-module - build tarball for customized NodeFormSettings module"
 	@echo " clean - clean files used to build                      "
 	@echo " help - show this help and exit                         "
