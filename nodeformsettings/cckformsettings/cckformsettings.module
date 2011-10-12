@@ -7,7 +7,11 @@
  */
 function cckformsettings_form_alter(&$form, $form_state, $form_id) {
 	if ($form_id == 'content_field_edit_form') {
-		if ($form['#field']['type'] == 'text' && $form['#field']['widget']['type'] == 'text_textarea'){
+		if (($form['#field']['type'] == 'text') &&
+		    (($form['#field']['widget']['type'] == 'text_textarea') ||
+		     ($form['#field']['widget']['type'] == 'text_textfield')
+		    )
+		   ){
 			cckformsettings_admin_form($form);
 			$form['field']['text_processing']['#weight'] = 1;
 			$form['field']['text_processing']['#prefix'] = '<div class="cckformsettings-radios">';
@@ -70,7 +74,10 @@ function cckformsettings_elements() {
 	return array(
 		'text_textarea' => array(
 			'#process' => array('cckformsettings_text_process'),
-		)
+		),
+		'text_textfield' => array(
+			'#process' => array('cckformsettings_text_process'),
+		),
 	);
 }
 
