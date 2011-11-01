@@ -1,6 +1,8 @@
 CURRENT
  - template.php
    o phptemplate_upload_attachments() - add one more blank line between images
+ - style.css
+   o add style for help text
 
 1.13 - 20111011
  - first production release

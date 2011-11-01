@@ -535,3 +535,5 @@ td.active {
 
 /* when sorting by columns  */
 td.active {background-color: #87aade;}
+
+.help {background-color: #fcc; padding: 3px; border: 1px solid #d77;}
